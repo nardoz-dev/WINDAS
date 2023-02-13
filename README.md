@@ -1,4 +1,4 @@
-# WINDFORME
+# WINDFORME ![image](/docs/sharedpictures/logo.jpg)
 
 `WINDFORME` - IoT University Project for the IoT 2022 Course @ Sapienza University of Rome.
 
