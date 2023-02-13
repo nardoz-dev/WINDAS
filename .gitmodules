@@ -1,6 +1,3 @@
-[submodule "RIOT"]
-	path = RIOT
-	url = https://github.com/RIOT-OS/RIOT
 [submodule "app/RIOT"]
 	path = app/RIOT
 	url = https://github.com/RIOT-OS/RIOT
