@@ -66,9 +66,20 @@ The transistor has a maximum collector current of 200 mA, a maximum collector-em
 
 
 ## Software
-## Data processing
-### Edge computing
-### Cloud computing
+## Network 
+
+The board communicates via MQTT to AWS IoT core( AWS cloud service ). MQTT is a lightweight messaging protocol designed for IoT (Internet of Things) applications, where bandwidth and power consumption are critical factors.
+In our application, the packets are sent via ethos.h which is a library of RIOT OS which provide a set of functions for working with network interfaces and protocols like MQTT. Then through a transparent MQTT-SN/MQTT bridge, component that enables communication betwenn MQTT-SN devices and MQTT brokers using the standard MQTT protocol, and finally over the internet to the AWS endpoint. On the user side, a Python server connects to AWS to retrieve the device data and interact with it as needed.
+
+![image](/docs/sharedpictures/networkconfiguration.png)
+
+Type of packets sent by the device over MQTT:
+
+Temperature Data Repors
+Sent whenever the device state changes, either by the user via the remote, or because the alarm was triggered. They contain a playload of the form {"active": 0, "triggered": 0}
+
+Additionally, the device listens for shadow updates coming from the web interface, so that the motor can be remotely controlled.
+
 ## How to run
 ## Demo video
 
