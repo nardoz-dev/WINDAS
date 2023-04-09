@@ -76,7 +76,7 @@ In our application, the packets are sent via ethos.h which is a library of RIOT 
 Type of packets sent by the device over MQTT:
 
 Temperature Data Repors
-Sent whenever the device state changes, either by the user via the remote, or because the alarm was triggered. They contain a playload of the form {"active": 0, "triggered": 0}
+Sent whenever the device temperature changes, either by the user via the remote, or because the motor was triggered. They contain a playload of the form {"active": 0, "triggered": 0}
 
 Additionally, the device listens for shadow updates coming from the web interface, so that the motor can be remotely controlled.
 
