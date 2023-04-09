@@ -80,6 +80,9 @@ Sent whenever the device state changes, either by the user via the remote, or be
 
 Additionally, the device listens for shadow updates coming from the web interface, so that the motor can be remotely controlled.
 
+## Data Processing
+### Edge Computing
+### Cloud Computing
 ## How to run
 ## Demo video
 
