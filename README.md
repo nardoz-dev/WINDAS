@@ -16,7 +16,7 @@ The Internet of Things (IoT) has revolutionized the way we interact with technol
 processing
 
 ## Architecture Design
-![image](/docs/sharedpictures/HWArchitecture.jpeg)
+![image](/docs/sharedpictures/HWArchitecture.png)
 
 ## Hardware
 
