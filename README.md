@@ -87,7 +87,14 @@ Additionally, the device listens for shadow updates coming from the web interfac
 
 ## Data Processing
 ### Edge Computing
+
+The device aggregates the information on temperature level and periodically sends comulative reports. This has the effect of reducing network load and forwarding only necessary information to the rest of the system via MQTT.
+The trigger logic for starting the motor is running fully on the device itself, so we gain less influence by network latency. 
+
 ### Cloud Computing
+
+The only part that works on cloud , so in the specific on AWS. It recieves the temperature data from the devices and then are stored on DynamoDB. 
+Here the steps :  
 ## How to run
 ## Demo video
 
