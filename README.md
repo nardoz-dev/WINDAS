@@ -20,49 +20,51 @@ processing
 
 ## Hardware
 
-### board : `Nucleo f401RE`
+* **board : `Nucleo f401RE`**
 
-The Nucleo F401RE is a development board based on the STM32F401RE microcontroller. The STM32F401RE is a high-performance microcontroller from STMicroelectronics that is part of the STM32 family of 32-bit Arm Cortex-M4 microcontrollers. The board also provides access to the STM32 microcontroller's rich range of hardware peripherals, making it a suitable platform for developing a wide range of applications, such as those in the fields of Internet of Things (IoT), robotics, and other embedded systems.
+  The [Nucleo F401RE](https://www.st.com/en/evaluation-tools/nucleo-f401re.html) is a development board based on the STM32F401RE microcontroller. The STM32F401RE is a high-performance microcontroller from STMicroelectronics that is part of the STM32 family of 32-bit Arm Cortex-M4 microcontrollers. The board also provides access to the STM32 microcontroller's rich range of hardware peripherals, making it a suitable platform for developing a wide range of applications, such as those in the fields of Internet of Things (IoT), robotics, and other embedded systems.
 
-The board includes an ARM Cortex-M4 core microcontroller running at up to 84MHz with 512KB of flash memory and 96KB of RAM. It also includes a variety of peripherals, including multiple timers, communication interfaces (UART, SPI, I2C, CAN), and analog-to-digital converters.
+  The board includes an ARM Cortex-M4 core microcontroller running at up to 84MHz with 512KB of flash memory and 96KB of RAM. It also includes a variety of peripherals, including multiple timers, communication interfaces (UART, SPI, I2C, CAN), and analog-to-digital converters.
 
-The Nucleo F401RE board has a built-in debugger and programmer, allowing developers to easily program and debug their code. It also features an Arduino-compatible pinout, allowing it to be easily interfaced with Arduino shields and other compatible hardware.
+  The Nucleo F401RE board has a built-in debugger and programmer, allowing developers to easily program and debug their code. It also features an Arduino-compatible pinout, allowing it to be easily interfaced with Arduino shields and other compatible hardware.
 
-### Humidity Sensor : `DHT11`
+* **Humidity Sensor : `DHT11`**
 
-The DHT-11 is a low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensing element and a thermistor to measure the ambient air temperature and humidity. The sensor uses a single-wire digital interface to communicate with the microcontroller, making it easy to integrate into a variety of projects.
+  The [DHT-11](https://www.adrirobot.it/sensore_dht11/) is a low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensing element and a thermistor to measure the ambient air temperature and humidity. The sensor uses a single-wire digital interface to communicate with the microcontroller, making it easy to integrate into a variety of projects.
 
-The DHT-11 sensor is used in this projects to measure the surrounding air's relative temperature. 
-The DHT-11 sensor is commonly used in projects related to home automation, weather stations, and other applications where temperature and humidity readings are needed. It is known for its accuracy, reliability, and low cost, making it a popular choice among hobbyists and makers.
+  The DHT-11 sensor is used in this projects to measure the surrounding air's relative temperature. 
+  The DHT-11 sensor is commonly used in projects related to home automation, weather stations, and other applications where temperature and humidity readings are needed. It is known for its accuracy, reliability, and low cost, making it a popular choice among hobbyists and makers.
 
-It can measure temperatures between 0 and 50 degrees Celsius, with an accuracy of ±2 degrees Celsius.
-In terms of electrical specifications, the DHT-11 sensor operates at a supply voltage of 3.3V to 5V and has a maximum current consumption of 2.5 mA.
+  It can measure temperatures between 0 and 50 degrees Celsius, with an accuracy of ±2 degrees Celsius.
+  In terms of electrical specifications, the DHT-11 sensor operates at a supply voltage of 3.3V to 5V and has a maximum current consumption of 2.5 mA.
 
-### 7-Segment display : `v. 3461BS-1`
+* **7-Segment display : `v. 3461BS-1`**
 
-A 7-segment display, such as the 3461BS-1, is a type of electronic display device used for displaying decimal numerals. It consists of seven individual segments that can be illuminated to form the numerals 0-9. 
+  A 7-segment display [3461BS-1](http://www.xlitx.com/Products/7-segment-led-dot-matrix/3461bs.html), is a type of electronic display device used for displaying decimal numerals. It consists of seven individual segments that can be illuminated to form the numerals 0-9. 
 
-The display has a forward voltage drop of 2.1V and a maximum forward current of 20mA for each segment. It has a common anode pin, which is used to supply power to the display, and seven cathode pins, one for each segment.
+  The display has a forward voltage drop of 2.1V and a maximum forward current of 20mA for each segment. It has a common anode pin, which is used to supply power to the display, and seven cathode pins, one for each segment.
 
-Each segment of the display can be controlled independently by supplying a voltage to its corresponding cathode pin. The segments are labeled A through G, and each segment can be turned on or off to display different numbers or letters.
+  Each segment of the display can be controlled independently by supplying a voltage to its corresponding cathode pin. The segments are labeled A through G, and each segment can be turned on or off to display different numbers or letters.
 
-In this project is used to display the strenght of the fan motor velocity. 
+  In this project is used to display the strenght of the fan motor velocity. 
 
-### Motor : `Mabuchi FC-130RA/SA`
-The FC-130RA is a small DC motor. It is a brushed motor, meaning it uses a system of brushes to transfer electrical energy to the motor's rotor, which then converts this energy into mechanical rotation.
+* **Motor : `Mabuchi FC-130RA/SA`**
 
-The FC-130RA/SA motor has a nominal voltage of 3V and can operate in a range of 1.5V to 4.5V. It has a no-load speed of 12,500 RPM and can produce a maximum torque of 7.4 g-cm. The motor has a maximum efficiency of 70% and a maximum power output of 1.2 W.
+  The [FC-130RA](https://www.neuhold-elektronik.at/datenblatt/fc_130rasa.pdf) is a small DC motor. It is a brushed motor, meaning it uses a system of brushes to transfer electrical energy to the motor's rotor, which then converts this energy into mechanical rotation.
 
-It is wiring with the transistor 2N3904 in order to be activated only from a signal that come from the board. So his working is to rotate in order to refresh the environment. It can help to cool the environment because we have attached in his mettalic bar, a plastic fan in order to be able to generate air.
+  The FC-130RA/SA motor has a nominal voltage of 3V and can operate in a range of 1.5V to 4.5V. It has a no-load speed of 12,500 RPM and can produce a maximum torque of 7.4 g-cm. The motor has a maximum efficiency of 70% and a maximum power output of 1.2 W.
 
-### Transistor : 2N3904
+  It is wiring with the transistor 2N3904 in order to be activated only from a signal that come from the board. So his working is to rotate in order to refresh the environment. It can help to cool the environment because we have attached in his mettalic bar, a plastic fan in order to be able to generate air.
 
-The 2N3904 is a small signal NPN bipolar junction transistor which has three leads with a specific function. Named rispectively : collector,base,emitter.
+* **Transistor : `2N3904`**
 
-The concept behind the work is that : when a small current flows into the base, the transistor turns on and allows a larger current to flow between the collector and emitter. The amount of current that flows is proportional to the current flowing into the base. This property makes the 2N3904 useful as an switching device, in order to turn off or on the motor. 
-The trigger of the flowing of the current is given by the board when the dht sensor catch a value of the temperature that is greater than the threshold settings value(25°).
+  The [2N3904](https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf) is a small signal NPN bipolar junction transistor which has three leads with a specific function. Named rispectively : collector,base,emitter.
 
-The transistor has a maximum collector current of 200 mA, a maximum collector-emitter voltage of 40 V, and a maximum power dissipation of 625 mW. 
+  The concept behind the work is that : when a small current flows into the base, the transistor turns on and allows a larger current to flow between the collector and emitter. The amount of current that flows is proportional to the current flowing into the base. This property makes the 2N3904 useful as an switching device, in order to turn off or on the motor. 
+
+  The trigger of the flowing of the current is given by the board when the dht sensor catch a value of the temperature that is greater than the threshold settings value(25°).
+
+  The transistor has a maximum collector current of 200 mA, a maximum collector-emitter voltage of 40 V, and a maximum power dissipation of 625 mW. 
 
 
 ## Software
