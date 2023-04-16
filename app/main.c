@@ -4,22 +4,19 @@
 #include "fmt.h"
 #include "dht.h"
 #include "dht_params.h"
+#include "periph/gpio.h"
 
-#define MOTOR_PIN GPIO_PIN(PORT_A,9)
-
-#define SEGMENT_A GPIO_PIN(PORT_A,3)
-#define SEGMENT_B GPIO_PIN(PORT_A,2)
-#define SEGMENT_C GPIO_PIN(PORT_B,3)
-#define SEGMENT_D GPIO_PIN(PORT_B,5)
-#define SEGMENT_E GPIO_PIN(PORT_B,4)
-#define SEGMENT_F GPIO_PIN(PORT_B,10)
-#define SEGMENT_G GPIO_PIN(PORT_A,8)
-#define DIGIT_1 GPIO_PIN(PORT_C,7)
-#define DIGIT_2 GPIO_PIN(PORT_A,7)
-#define DIGIT_3 GPIO_PIN(PORT_A,6)
-#define DIGIT_4 GPIO_PIN(PORT_A,5)
-#define DP GPIO_PIN(PORT_B,6)
-
+/*
+//Pin for the display 7 segment.
+gpio_t segment_a = GPIO_PIN(PORT_A,9);
+gpio_t segment_a = GPIO_PIN(PORT_B,8);
+gpio_t segment_a = GPIO_PIN(PORT_A,5);
+gpio_t segment_a = GPIO_PIN(PORT_A,2);
+gpio_t segment_a = GPIO_PIN(PORT_A,10);
+gpio_t segment_a = GPIO_PIN(PORT_B,3);
+gpio_t segment_a = GPIO_PIN(PORT_B,9);
+gpio_t segment_a = GPIO_PIN(PORT_A,3);
+gpio_t digit = GPIO_PIN(PORT_C,7);
 
 
 // Array di valori per le singole cifre del display
@@ -48,18 +45,12 @@ void init_display(void) {
     gpio_init(SEGMENT_F, GPIO_OUT);
     gpio_init(SEGMENT_G, GPIO_OUT);
     gpio_init(DIGIT_1, GPIO_OUT);
-    gpio_init(DIGIT_2, GPIO_OUT);
-    gpio_init(DIGIT_3, GPIO_OUT);
-    gpio_init(DIGIT_4, GPIO_OUT);
 }
 
 
 // Imposta il valore di una singola cifra del display
-void set_digit_value(int digit, int value) {
+void set_digit_value(int value) {
     gpio_clear(DIGIT_1);
-    gpio_clear(DIGIT_2);
-    gpio_clear(DIGIT_3);
-    gpio_clear(DIGIT_4);
 
     const uint8_t* segment_values = digit_values[value];
     gpio_write(SEGMENT_A, segment_values[0]);
@@ -70,39 +61,57 @@ void set_digit_value(int digit, int value) {
     gpio_write(SEGMENT_F, segment_values[5]);
     gpio_write(SEGMENT_G, segment_values[6]);
 
-    switch (digit) {
-        case 1:
-            gpio_set(DIGIT_1);
-            break;
-        case 2:
-            gpio_set(DIGIT_2);
-            break;
-        case 3:
-            gpio_set(DIGIT_3);
-            break;
-        case 4:
-            gpio_set(DIGIT_4);
-            break;
-        default:
-            break;
-    }
-}
+    gpio_set(DIGIT_1);
+    
+}*/
+
 
 
 int main(void){
-    init_display();
-    
-    set_digit_value(1,0);
-
     /*
-    printf("RIOT temperature_humidity application\n"
-           "DHT temperature and humidity sensor test application\n"
-           "using RIOT DHT peripheral driver\n"
-           "DHT sensor type %d\n", 22);
+    xtimer_sleep(2);
+    gpio_t motor_pin = GPIO_PIN(PORT_C,7);
+    if (gpio_init(motor_pin, GPIO_OUT)) {
+        printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_C, 7);
+        return -1;
+    }
+    else {
+        printf("Good initialization\n");
+    }
+
+    gpio_t led_pin = GPIO_PIN(PORT_A,9);
+    if (gpio_init(led_pin, GPIO_OUT)) {
+        printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_A, 9);
+        return -1;
+    }
+    else {
+        printf("Good initialization\n");
+    }
+    while(1){
+        xtimer_sleep(5);
+        printf("Set motor On\n");
+        gpio_set(motor_pin);
+        gpio_set(led_pin);
+        xtimer_sleep(5);
+
+        printf("Set motor Off\n");
+        gpio_clear(motor_pin);
+        gpio_clear(led_pin);
+        xtimer_sleep(5);
+    }
+    */
+    
+    printf("RIOT windforme application\n"
+           "AirCooler Test Application\n"
+           "using RIOT DHT peripheral driver and Motor Mabuchi FC130\n"
+           "DHT sensor type %d . Motor Type FC 130RA/SA \n", 22);
+
+    //Initialize display pin
+    //init_display();
 
     // Fix port parameter for digital sensor 
     dht_params_t my_params;
-    my_params.pin = GPIO_PIN(PORT_A, 10);
+    my_params.pin = GPIO_PIN(PORT_A, 8);
     my_params.in_mode = DHT_PARAM_PULL;
 
     // Initialize digital sensor 
@@ -116,16 +125,26 @@ int main(void){
     }
 
     // Initialize GPIO pin for motor 
-    gpio_init(MOTOR_PIN,GPIO_OUT);
+    gpio_t motor_pin = GPIO_PIN(PORT_C,7);
+    if (gpio_init(motor_pin, GPIO_OUT)) {
+        printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_A, 9);
+        return -1;
+    }
+    else {
+        printf("Pin for Activation motor initialization\n");
+    }
     
 
     int i = 0;
+    bool flag = false;
+    bool controlflag = false;
     while(i == 0){
 
         // Retrieve sensor reading 
         int16_t temp, hum;
         if (dht_read(&dev, &temp, &hum) != DHT_OK) {
             printf("Error reading values\n");
+            controlflag = true;
         }
 
         // Extract + format temperature from sensor reading 
@@ -142,21 +161,28 @@ int main(void){
 
         printf("%u\n", (unsigned int)temp);
          // Check temperature and activate motor if necessary 
-        if ((unsigned int)temp >= 200) {
+        if (((unsigned int)temp >= 241) && (!flag) && (!controlflag)) {
             printf("Temperature above threshold - activating motor\n");
-            gpio_set(MOTOR_PIN);
-            xtimer_usleep(25000000);
-            gpio_clear(MOTOR_PIN);
+            gpio_set(motor_pin);
+            flag = true;
+        }
+        if(((unsigned int)temp <= 240) && flag && (!controlflag)){
+            xtimer_sleep(2);
+            printf("Temperature under threshold - deactivating motor \n");
+            gpio_clear(motor_pin);
+            flag = false;
+            xtimer_sleep(5);
+        }
+        //only for testing - personal debug
+        if(controlflag){
+            printf("Reset, error on reading values from DHT sensor. ");
+            //force deactivation motor. 
+            gpio_clear(motor_pin);
         }
         
-        //struct timespec delay = { .tv_sec = 5, .tv_nsec = 0 };
-        //nanosleep(&delay, NULL);
-         xtimer_usleep(3000000);
-
-
+        //Clock Time for picking samples
+        xtimer_sleep(3);
     }
     
-    */
-
     return 0;
 }

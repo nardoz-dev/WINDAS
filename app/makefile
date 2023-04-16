@@ -1,5 +1,5 @@
 # name of your application
-APPLICATION = temperature_humidity
+APPLICATION = WINDFORME
 
 # If no BOARD is found in the environment, use this default:
 BOARD ?= nucleo-f401re
@@ -19,10 +19,6 @@ QUIET ?= 0
 USEMODULE += dht
 USEMODULE += fmt
 USEMODULE += xtimer
-
-# Additional CFLAGS
-CFLAGS += -Wall -Werror
-
-
+USEMODULE += periph_gpio
 
 include $(RIOTBASE)/Makefile.include

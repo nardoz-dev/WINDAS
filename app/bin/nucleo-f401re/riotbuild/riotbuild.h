@@ -7,7 +7,7 @@
 #define __SYSTEM_STM32F4XX_H 1
 #define CPU_MODEL_STM32F401RE 1
 #define CPU_CORE_CORTEX_M4F 1
-#define RIOT_APPLICATION "temperature_humidity"
+#define RIOT_APPLICATION "WINDFORME"
 #define BOARD_NUCLEO_F401RE "nucleo-f401re"
 #define RIOT_BOARD BOARD_NUCLEO_F401RE
 #define CPU_STM32 "stm32"
