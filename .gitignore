@@ -1,1 +1,4 @@
 .DS_*
+.elf
+.bin
+.map

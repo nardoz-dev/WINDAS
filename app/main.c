@@ -68,7 +68,7 @@ void set_digit_value(int value) {
 
 
 int main(void){
-    /*
+    
     xtimer_sleep(2);
     gpio_t motor_pin = GPIO_PIN(PORT_C,7);
     if (gpio_init(motor_pin, GPIO_OUT)) {
@@ -78,7 +78,7 @@ int main(void){
     else {
         printf("Good initialization\n");
     }
-
+/*
     gpio_t led_pin = GPIO_PIN(PORT_A,9);
     if (gpio_init(led_pin, GPIO_OUT)) {
         printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_A, 9);
@@ -87,20 +87,21 @@ int main(void){
     else {
         printf("Good initialization\n");
     }
+    */
     while(1){
         xtimer_sleep(5);
         printf("Set motor On\n");
         gpio_set(motor_pin);
-        gpio_set(led_pin);
+        //gpio_set(led_pin);
         xtimer_sleep(5);
 
         printf("Set motor Off\n");
         gpio_clear(motor_pin);
-        gpio_clear(led_pin);
-        xtimer_sleep(5);
+        //gpio_clear(led_pin);
+
     }
-    */
     
+    /*
     printf("RIOT windforme application\n"
            "AirCooler Test Application\n"
            "using RIOT DHT peripheral driver and Motor Mabuchi FC130\n"
@@ -183,6 +184,6 @@ int main(void){
         //Clock Time for picking samples
         xtimer_sleep(3);
     }
-    
+    */
     return 0;
 }
