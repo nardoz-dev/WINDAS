@@ -8612,7 +8612,7 @@ END GROUP
  .vectors.1     0x08000040      0x154 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
                 0x08000040                vector_cpu
  *(.text .text.* .gnu.linkonce.t.*)
- .text.xtimer_sleep
+ .text.xtimer_sleep.constprop.0
                 0x08000194       0x14 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
  .text.startup.main
                 0x080001a8       0x68 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
@@ -9328,138 +9328,138 @@ END GROUP
 OUTPUT(/Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/WINDFORME.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000    0x1b7b5
- .debug_info    0x00000000     0x12b9 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
- .debug_info    0x000012b9      0x1b4 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
- .debug_info    0x0000146d      0xd6f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
- .debug_info    0x000021dc     0x1006 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
- .debug_info    0x000031e2     0x118b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
- .debug_info    0x0000436d     0x1430 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
- .debug_info    0x0000579d      0x2f4 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
- .debug_info    0x00005a91      0x3f9 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
- .debug_info    0x00005e8a      0x35e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
- .debug_info    0x000061e8      0x847 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
- .debug_info    0x00006a2f      0x434 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
- .debug_info    0x00006e63      0x230 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
- .debug_info    0x00007093      0xa4e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
- .debug_info    0x00007ae1     0x1a52 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
- .debug_info    0x00009533      0xe88 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
- .debug_info    0x0000a3bb     0x11f0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
- .debug_info    0x0000b5ab     0x1fc9 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
- .debug_info    0x0000d574     0x1329 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
- .debug_info    0x0000e89d      0x58d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
- .debug_info    0x0000ee2a     0x19c3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
- .debug_info    0x000107ed     0x1885 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
- .debug_info    0x00012072      0x14c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
- .debug_info    0x000121be      0xeaf /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
- .debug_info    0x0001306d     0x1234 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
- .debug_info    0x000142a1     0x105c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
- .debug_info    0x000152fd      0xd90 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
- .debug_info    0x0001608d      0xeb0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
- .debug_info    0x00016f3d      0x263 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
- .debug_info    0x000171a0     0x10ea /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
- .debug_info    0x0001828a     0x106d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
- .debug_info    0x000192f7     0x1180 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
- .debug_info    0x0001a477     0x133e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
+.debug_info     0x00000000    0x1b7c2
+ .debug_info    0x00000000     0x12c6 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
+ .debug_info    0x000012c6      0x1b4 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
+ .debug_info    0x0000147a      0xd6f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
+ .debug_info    0x000021e9     0x1006 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
+ .debug_info    0x000031ef     0x118b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
+ .debug_info    0x0000437a     0x1430 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
+ .debug_info    0x000057aa      0x2f4 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
+ .debug_info    0x00005a9e      0x3f9 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
+ .debug_info    0x00005e97      0x35e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
+ .debug_info    0x000061f5      0x847 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
+ .debug_info    0x00006a3c      0x434 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
+ .debug_info    0x00006e70      0x230 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
+ .debug_info    0x000070a0      0xa4e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
+ .debug_info    0x00007aee     0x1a52 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
+ .debug_info    0x00009540      0xe88 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
+ .debug_info    0x0000a3c8     0x11f0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
+ .debug_info    0x0000b5b8     0x1fc9 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
+ .debug_info    0x0000d581     0x1329 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
+ .debug_info    0x0000e8aa      0x58d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
+ .debug_info    0x0000ee37     0x19c3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
+ .debug_info    0x000107fa     0x1885 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
+ .debug_info    0x0001207f      0x14c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
+ .debug_info    0x000121cb      0xeaf /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
+ .debug_info    0x0001307a     0x1234 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
+ .debug_info    0x000142ae     0x105c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
+ .debug_info    0x0001530a      0xd90 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
+ .debug_info    0x0001609a      0xeb0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
+ .debug_info    0x00016f4a      0x263 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
+ .debug_info    0x000171ad     0x10ea /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
+ .debug_info    0x00018297     0x106d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
+ .debug_info    0x00019304     0x1180 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
+ .debug_info    0x0001a484     0x133e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
 
-.debug_abbrev   0x00000000     0x620b
- .debug_abbrev  0x00000000      0x32a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
- .debug_abbrev  0x0000032a      0x12f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
- .debug_abbrev  0x00000459      0x1d6 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
- .debug_abbrev  0x0000062f      0x40b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
- .debug_abbrev  0x00000a3a      0x4df /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
- .debug_abbrev  0x00000f19      0x507 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
- .debug_abbrev  0x00001420      0x1d3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
- .debug_abbrev  0x000015f3      0x28b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
- .debug_abbrev  0x0000187e      0x226 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
- .debug_abbrev  0x00001aa4      0x2ef /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
- .debug_abbrev  0x00001d93      0x190 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
- .debug_abbrev  0x00001f23      0x1bd /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
- .debug_abbrev  0x000020e0      0x4cc /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
- .debug_abbrev  0x000025ac      0x494 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
- .debug_abbrev  0x00002a40      0x2da /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
- .debug_abbrev  0x00002d1a      0x2f3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
- .debug_abbrev  0x0000300d      0x4b6 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
- .debug_abbrev  0x000034c3      0x33c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
- .debug_abbrev  0x000037ff      0x299 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
- .debug_abbrev  0x00003a98      0x49e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
- .debug_abbrev  0x00003f36      0x4a7 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
- .debug_abbrev  0x000043dd      0x10c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
- .debug_abbrev  0x000044e9      0x200 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
- .debug_abbrev  0x000046e9      0x345 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
- .debug_abbrev  0x00004a2e      0x2fc /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
- .debug_abbrev  0x00004d2a      0x215 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
- .debug_abbrev  0x00004f3f      0x2d0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
- .debug_abbrev  0x0000520f       0xd4 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
- .debug_abbrev  0x000052e3      0x4ae /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
- .debug_abbrev  0x00005791      0x24c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
- .debug_abbrev  0x000059dd      0x392 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
- .debug_abbrev  0x00005d6f      0x49c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
+.debug_abbrev   0x00000000     0x6206
+ .debug_abbrev  0x00000000      0x325 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
+ .debug_abbrev  0x00000325      0x12f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
+ .debug_abbrev  0x00000454      0x1d6 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
+ .debug_abbrev  0x0000062a      0x40b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
+ .debug_abbrev  0x00000a35      0x4df /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
+ .debug_abbrev  0x00000f14      0x507 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
+ .debug_abbrev  0x0000141b      0x1d3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
+ .debug_abbrev  0x000015ee      0x28b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
+ .debug_abbrev  0x00001879      0x226 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
+ .debug_abbrev  0x00001a9f      0x2ef /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
+ .debug_abbrev  0x00001d8e      0x190 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
+ .debug_abbrev  0x00001f1e      0x1bd /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
+ .debug_abbrev  0x000020db      0x4cc /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
+ .debug_abbrev  0x000025a7      0x494 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
+ .debug_abbrev  0x00002a3b      0x2da /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
+ .debug_abbrev  0x00002d15      0x2f3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
+ .debug_abbrev  0x00003008      0x4b6 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
+ .debug_abbrev  0x000034be      0x33c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
+ .debug_abbrev  0x000037fa      0x299 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
+ .debug_abbrev  0x00003a93      0x49e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
+ .debug_abbrev  0x00003f31      0x4a7 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
+ .debug_abbrev  0x000043d8      0x10c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
+ .debug_abbrev  0x000044e4      0x200 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
+ .debug_abbrev  0x000046e4      0x345 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
+ .debug_abbrev  0x00004a29      0x2fc /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
+ .debug_abbrev  0x00004d25      0x215 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
+ .debug_abbrev  0x00004f3a      0x2d0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
+ .debug_abbrev  0x0000520a       0xd4 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
+ .debug_abbrev  0x000052de      0x4ae /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
+ .debug_abbrev  0x0000578c      0x24c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
+ .debug_abbrev  0x000059d8      0x392 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
+ .debug_abbrev  0x00005d6a      0x49c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
 
 .debug_loclists
-                0x00000000     0x30d7
+                0x00000000     0x30a9
  .debug_loclists
-                0x00000000       0x5c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
+                0x00000000       0x2e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
  .debug_loclists
-                0x0000005c       0x36 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
+                0x0000002e       0x36 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
  .debug_loclists
-                0x00000092       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
+                0x00000064       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
  .debug_loclists
-                0x000000b4      0x211 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
+                0x00000086      0x211 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
  .debug_loclists
-                0x000002c5      0x343 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
+                0x00000297      0x343 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
  .debug_loclists
-                0x00000608      0x56d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
+                0x000005da      0x56d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
  .debug_loclists
-                0x00000b75       0x69 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
+                0x00000b47       0x69 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
  .debug_loclists
-                0x00000bde       0x39 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
+                0x00000bb0       0x39 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
  .debug_loclists
-                0x00000c17       0x4d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
+                0x00000be9       0x4d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
  .debug_loclists
-                0x00000c64      0x129 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
+                0x00000c36      0x129 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
  .debug_loclists
-                0x00000d8d       0x67 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
+                0x00000d5f       0x67 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
  .debug_loclists
-                0x00000df4       0x43 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
+                0x00000dc6       0x43 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
  .debug_loclists
-                0x00000e37      0x1a7 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
+                0x00000e09      0x1a7 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
  .debug_loclists
-                0x00000fde      0x262 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
+                0x00000fb0      0x262 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
  .debug_loclists
-                0x00001240       0x5b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
+                0x00001212       0x5b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
  .debug_loclists
-                0x0000129b      0x137 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
+                0x0000126d      0x137 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
  .debug_loclists
-                0x000013d2      0x2f3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
+                0x000013a4      0x2f3 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
  .debug_loclists
-                0x000016c5      0x31c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
+                0x00001697      0x31c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
  .debug_loclists
-                0x000019e1       0xfa /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
+                0x000019b3       0xfa /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
  .debug_loclists
-                0x00001adb      0x3ca /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
+                0x00001aad      0x3ca /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
  .debug_loclists
-                0x00001ea5      0x34b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
+                0x00001e77      0x34b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
  .debug_loclists
-                0x000021f0       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
+                0x000021c2       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
  .debug_loclists
-                0x00002212       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
+                0x000021e4       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
  .debug_loclists
-                0x00002234      0x14d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
+                0x00002206      0x14d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
  .debug_loclists
-                0x00002381       0x8d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
+                0x00002353       0x8d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
  .debug_loclists
-                0x0000240e       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
+                0x000023e0       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
  .debug_loclists
-                0x00002430       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
+                0x00002402       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
  .debug_loclists
-                0x00002452      0x51b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
+                0x00002424      0x51b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
  .debug_loclists
-                0x0000296d       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
+                0x0000293f       0x22 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
  .debug_loclists
-                0x0000298f      0x219 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
+                0x00002961      0x219 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
  .debug_loclists
-                0x00002ba8      0x52f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
+                0x00002b7a      0x52f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
 
 .debug_aranges  0x00000000      0x940
  .debug_aranges
@@ -9808,39 +9808,39 @@ LOAD linker stubs
  .debug_macro   0x0003f08d      0x46e /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
  .debug_macro   0x0003f4fb      0xb26 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
 
-.debug_line     0x00000000    0x1be50
- .debug_line    0x00000000     0x1034 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
- .debug_line    0x00001034      0x954 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
- .debug_line    0x00001988      0xe5b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
- .debug_line    0x000027e3      0xee1 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
- .debug_line    0x000036c4      0xe7f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
- .debug_line    0x00004543     0x115f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
- .debug_line    0x000056a2      0x885 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
- .debug_line    0x00005f27      0xc89 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
- .debug_line    0x00006bb0      0xc1d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
- .debug_line    0x000077cd      0x96b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
- .debug_line    0x00008138      0x8af /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
- .debug_line    0x000089e7      0x86a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
- .debug_line    0x00009251      0xb6c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
- .debug_line    0x00009dbd     0x1164 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
- .debug_line    0x0000af21      0xe2a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
- .debug_line    0x0000bd4b     0x1086 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
- .debug_line    0x0000cdd1     0x13be /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
- .debug_line    0x0000e18f     0x1087 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
- .debug_line    0x0000f216      0xd84 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
- .debug_line    0x0000ff9a     0x122a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
- .debug_line    0x000111c4     0x1090 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
- .debug_line    0x00012254      0xaac /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
- .debug_line    0x00012d00      0xe70 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
- .debug_line    0x00013b70     0x113d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
- .debug_line    0x00014cad      0xf72 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
- .debug_line    0x00015c1f      0xddb /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
- .debug_line    0x000169fa      0xe44 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
- .debug_line    0x0001783e      0x50b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
- .debug_line    0x00017d49     0x1329 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
- .debug_line    0x00019072      0xfa2 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
- .debug_line    0x0001a014      0xe6c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
- .debug_line    0x0001ae80      0xfd0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
+.debug_line     0x00000000    0x1be55
+ .debug_line    0x00000000     0x1039 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
+ .debug_line    0x00001039      0x954 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/auto_init//auto_init.o
+ .debug_line    0x0000198d      0xe5b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/board_common_init//board_common.o
+ .debug_line    0x000027e8      0xee1 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//mutex.o
+ .debug_line    0x000036c9      0xe7f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//sched.o
+ .debug_line    0x00004548     0x115f /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core//thread.o
+ .debug_line    0x000056a7      0x885 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//assert.o
+ .debug_line    0x00005f2c      0xc89 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//init.o
+ .debug_line    0x00006bb5      0xc1d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib//panic.o
+ .debug_line    0x000077d2      0x96b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//cortexm_init.o
+ .debug_line    0x0000813d      0x8af /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//mpu.o
+ .debug_line    0x000089ec      0x86a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//panic.o
+ .debug_line    0x00009256      0xb6c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//thread_arch.o
+ .debug_line    0x00009dc2     0x1164 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cortexm_common//vectors_cortexm.o
+ .debug_line    0x0000af26      0xe2a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_common.o
+ .debug_line    0x0000bd50     0x1086 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/cpu//cpu_init.o
+ .debug_line    0x0000cdd6     0x13be /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/newlib_syscalls_default//syscalls.o
+ .debug_line    0x0000e194     0x1087 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//gpio_all.o
+ .debug_line    0x0000f21b      0xd84 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//pm.o
+ .debug_line    0x0000ff9f     0x122a /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//timer.o
+ .debug_line    0x000111c9     0x1090 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph//uart.o
+ .debug_line    0x00012259      0xaac /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init.o
+ .debug_line    0x00012d05      0xe70 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/periph_common//init_leds.o
+ .debug_line    0x00013b75     0x113d /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/pm_layered//pm.o
+ .debug_line    0x00014cb2      0xf72 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stdio_uart//stdio_uart.o
+ .debug_line    0x00015c24      0xddb /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_common.o
+ .debug_line    0x000169ff      0xe44 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_clk//stmclk_f2f4f7.o
+ .debug_line    0x00017843      0x50b /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/stm32_vectors//STM32F401xE.o
+ .debug_line    0x00017d4e     0x1329 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//core.o
+ .debug_line    0x00019077      0xfa2 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//init.o
+ .debug_line    0x0001a019      0xe6c /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//periph_timer.o
+ .debug_line    0x0001ae85      0xfd0 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/ztimer_core//util.o
 
 .debug_str      0x00000000    0xa3929
  .debug_str     0x00000000    0x580b9 /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/application_WINDFORME//main.o
