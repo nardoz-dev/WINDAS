@@ -69,6 +69,7 @@ void set_digit_value(int value) {
 
 int main(void){
     
+    /*
     xtimer_sleep(2);
     gpio_t motor_pin = GPIO_PIN(PORT_C,7);
     if (gpio_init(motor_pin, GPIO_OUT)) {
@@ -78,7 +79,7 @@ int main(void){
     else {
         printf("Good initialization\n");
     }
-/*
+
     gpio_t led_pin = GPIO_PIN(PORT_A,9);
     if (gpio_init(led_pin, GPIO_OUT)) {
         printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_A, 9);
@@ -88,6 +89,7 @@ int main(void){
         printf("Good initialization\n");
     }
     */
+    /*
     while(1){
         xtimer_sleep(5);
         printf("Set motor On\n");
@@ -100,8 +102,8 @@ int main(void){
         //gpio_clear(led_pin);
 
     }
+    */
     
-    /*
     printf("RIOT windforme application\n"
            "AirCooler Test Application\n"
            "using RIOT DHT peripheral driver and Motor Mabuchi FC130\n"
@@ -128,7 +130,7 @@ int main(void){
     // Initialize GPIO pin for motor 
     gpio_t motor_pin = GPIO_PIN(PORT_C,7);
     if (gpio_init(motor_pin, GPIO_OUT)) {
-        printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_A, 9);
+        printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_C, 9);
         return -1;
     }
     else {
@@ -138,6 +140,7 @@ int main(void){
 
     int i = 0;
     bool flag = false;
+    //flag to avoid conflit in case DHT sensor failed to reading values
     bool controlflag = false;
     while(i == 0){
 
@@ -162,12 +165,12 @@ int main(void){
 
         printf("%u\n", (unsigned int)temp);
          // Check temperature and activate motor if necessary 
-        if (((unsigned int)temp >= 241) && (!flag) && (!controlflag)) {
+        if (((unsigned int)temp >= 255) && (!flag) && (!controlflag)) {
             printf("Temperature above threshold - activating motor\n");
             gpio_set(motor_pin);
             flag = true;
         }
-        if(((unsigned int)temp <= 240) && flag && (!controlflag)){
+        if(((unsigned int)temp <= 254) && flag && (!controlflag)){
             xtimer_sleep(2);
             printf("Temperature under threshold - deactivating motor \n");
             gpio_clear(motor_pin);
@@ -176,14 +179,16 @@ int main(void){
         }
         //only for testing - personal debug
         if(controlflag){
-            printf("Reset, error on reading values from DHT sensor. ");
-            //force deactivation motor. 
-            gpio_clear(motor_pin);
+            printf("Reset, error on reading values from DHT sensor. Waiting ... ");
+            xtimer_sleep(3);
+            // force deactivation motor. 
+            // gpio_clear(motor_pin);
+            controlflag = false;
+            printf("\n Reset Completed \n");
         }
         
         //Clock Time for picking samples
         xtimer_sleep(3);
     }
-    */
     return 0;
 }
