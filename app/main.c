@@ -8,6 +8,22 @@
 
 // For MQTT
 #include "net/emcute.h"
+#define EMCUTE_PRIO         (THREAD_PRIORITY_MAIN - 1)
+
+#define NUMOFSUBS           (1U)
+#define TOPIC_MAXLEN        (64U)
+
+static char stack[THREAD_STACKSIZE_DEFAULT];
+
+static emcute_sub_t subscriptions[NUMOFSUBS];
+static char topics[NUMOFSUBS][TOPIC_MAXLEN];
+
+static void *emcute_thread(void *arg)
+{
+    (void)arg;
+    emcute_run(CONFIG_EMCUTE_DEFAULT_PORT, EMCUTE_ID);
+    return NULL;    /* should never be reached */
+}
 
 
 int main(void){
@@ -44,6 +60,27 @@ int main(void){
     else {
         printf("Pin for Activation motor initialization\n");
     }
+
+    // Connecting to the MQTT broker
+    sock_udp_ep_t gw = { .family = AF_INET6, .port = SERVER_PORT };
+    char *topic = MQTT_TOPIC;
+    char *message = "connected";
+    size_t len = strlen(message);
+
+    /* parse address */
+    if (ipv6_addr_from_str((ipv6_addr_t *)&gw.addr.ipv6, SERVER_ADDR) == NULL) {
+        printf("error parsing IPv6 address\n");
+        return 1;
+    }
+
+    if (emcute_con(&gw, true, topic, message, len, 0) != EMCUTE_OK) {
+        printf("error: unable to connect to [%s]:%i\n", SERVER_ADDR,
+            (int)gw.port);
+        return 1;
+    }
+
+    printf("Successfully connected to gateway at [%s]:%i\n",
+        SERVER_ADDR, (int)gw.port);
     
 
     int i = 0;
