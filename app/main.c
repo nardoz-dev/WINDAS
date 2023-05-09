@@ -6,24 +6,43 @@
 #include "dht_params.h"
 #include "periph/gpio.h"
 
-/*
-//Pin for the display 7 segment.
-gpio_t segment_a = GPIO_PIN(PORT_A,9);
-gpio_t segment_a = GPIO_PIN(PORT_B,8);
-gpio_t segment_a = GPIO_PIN(PORT_A,5);
-gpio_t segment_a = GPIO_PIN(PORT_A,2);
-gpio_t segment_a = GPIO_PIN(PORT_A,10);
-gpio_t segment_a = GPIO_PIN(PORT_B,3);
-gpio_t segment_a = GPIO_PIN(PORT_B,9);
-gpio_t segment_a = GPIO_PIN(PORT_A,3);
-gpio_t digit = GPIO_PIN(PORT_C,7);
 
+//Pin for the display 7 segment.
+/* OLD CONFIGURATION 
+gpio_t segment_a = GPIO_PIN(PORT_A,9);   
+gpio_t segment_b = GPIO_PIN(PORT_B,8);
+gpio_t segment_c = GPIO_PIN(PORT_A,5);
+gpio_t segment_d = GPIO_PIN(PORT_A,2);
+gpio_t segment_e = GPIO_PIN(PORT_A,10);
+gpio_t segment_f = GPIO_PIN(PORT_B,3);
+gpio_t segment_g = GPIO_PIN(PORT_B,9);
+gpio_t segment_h = GPIO_PIN(PORT_A,3);
+gpio_t digit = GPIO_PIN(PORT_C,7);
+*/
+
+/*
+New configuration
+A -> D6
+B -> D3
+C -> D11
+D -> D10
+E -> D2
+F -> D4
+G -> D5
+*/
+gpio_t SEGMENT_A = GPIO_PIN(PORT_B,10);   
+gpio_t SEGMENT_B = GPIO_PIN(PORT_B,3);
+gpio_t SEGMENT_C = GPIO_PIN(PORT_A,7);
+gpio_t SEGMENT_D = GPIO_PIN(PORT_B,6);
+gpio_t SEGMENT_E = GPIO_PIN(PORT_A,10);
+gpio_t SEGMENT_F = GPIO_PIN(PORT_B,5);
+gpio_t SEGMENT_G = GPIO_PIN(PORT_B,4);
 
 // Array di valori per le singole cifre del display
 // Array di valori per le singole cifre del display
 static const uint8_t digit_values[][7] = {
     {0, 0, 0, 0, 0, 0, 1}, // 0
-    {0, 1, 1, 0, 0, 0, 0}, // 1
+    {1, 0, 0, 1, 1, 1, 1}, // 1
     {1, 1, 0, 1, 1, 0, 1}, // 2
     {1, 1, 1, 1, 0, 0, 1}, // 3
     {0, 1, 1, 0, 0, 1, 1}, // 4
@@ -35,7 +54,7 @@ static const uint8_t digit_values[][7] = {
 };
 
 
-// Inizializza il display
+//Inizializza il display
 void init_display(void) {
     gpio_init(SEGMENT_A, GPIO_OUT);
     gpio_init(SEGMENT_B, GPIO_OUT);
@@ -44,13 +63,11 @@ void init_display(void) {
     gpio_init(SEGMENT_E, GPIO_OUT);
     gpio_init(SEGMENT_F, GPIO_OUT);
     gpio_init(SEGMENT_G, GPIO_OUT);
-    gpio_init(DIGIT_1, GPIO_OUT);
 }
 
 
 // Imposta il valore di una singola cifra del display
 void set_digit_value(int value) {
-    gpio_clear(DIGIT_1);
 
     const uint8_t* segment_values = digit_values[value];
     gpio_write(SEGMENT_A, segment_values[0]);
@@ -60,10 +77,8 @@ void set_digit_value(int value) {
     gpio_write(SEGMENT_E, segment_values[4]);
     gpio_write(SEGMENT_F, segment_values[5]);
     gpio_write(SEGMENT_G, segment_values[6]);
-
-    gpio_set(DIGIT_1);
     
-}*/
+}
 
 
 
@@ -104,13 +119,16 @@ int main(void){
     }
     */
     
+    
     printf("RIOT windforme application\n"
            "AirCooler Test Application\n"
            "using RIOT DHT peripheral driver and Motor Mabuchi FC130\n"
            "DHT sensor type %d . Motor Type FC 130RA/SA \n", 22);
 
     //Initialize display pin
-    //init_display();
+    init_display();
+    set_digit_value(1);
+    /*
 
     // Fix port parameter for digital sensor 
     dht_params_t my_params;
@@ -190,5 +208,6 @@ int main(void){
         //Clock Time for picking samples
         xtimer_sleep(3);
     }
+    */
     return 0;
 }
