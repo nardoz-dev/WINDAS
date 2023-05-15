@@ -16,7 +16,7 @@ gpio_t SEGMENT_F = GPIO_PIN(PORT_B,5);
 gpio_t SEGMENT_G = GPIO_PIN(PORT_B,4);
 
 // Array di valori per le singole cifre del display
-static const uint8_t digit_values[][4] = {
+static const uint8_t digit_values[][7] = {
     {0, 0, 0, 0, 0, 0, 1}, // 0
     {1, 0, 0, 1, 1, 1, 1}, // 1    
     {0, 0, 1, 0, 0, 1, 0}, // 2
@@ -124,7 +124,7 @@ int main(void){
         if(((unsigned int)temp <= 254) && flag && (!controlflag)){
             xtimer_sleep(2);
             printf("Temperature under threshold - deactivating motor \n");
-            set_digit_value(0)
+            set_digit_value(0);
             gpio_clear(motor_pin);
             flag = false;
             xtimer_sleep(5);
