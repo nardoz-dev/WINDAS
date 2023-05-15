@@ -37,15 +37,15 @@ The Internet of Things (IoT) has revolutionized the way we interact with technol
   It can measure temperatures between 0 and 50 degrees Celsius, with an accuracy of ±2 degrees Celsius.
   In terms of electrical specifications, the DHT-11 sensor operates at a supply voltage of 3.3V to 5V and has a maximum current consumption of 2.5 mA.
 
-* **7-Segment display : `v. 3461BS-1`**
+* **7-Segment display : `5611BH`**
 
-  A 7-segment display [3461BS-1](http://www.xlitx.com/Products/7-segment-led-dot-matrix/3461bs.html), is a type of electronic display device used for displaying decimal numerals. It consists of seven individual segments that can be illuminated to form the numerals 0-9. 
+  A 7-segment display [5611BH](https://datasheetspdf.com/pdf/1404694/XILTX/5611BH/1), is a type of electronic display device used for displaying decimal numerals. It consists of seven individual segments that can be illuminated to form the numerals 0-9. 
 
   The display has a forward voltage drop of 2.1V and a maximum forward current of 20mA for each segment. It has a common anode pin, which is used to supply power to the display, and seven cathode pins, one for each segment.
 
   Each segment of the display can be controlled independently by supplying a voltage to its corresponding cathode pin. The segments are labeled A through G, and each segment can be turned on or off to display different numbers or letters.
 
-  In this project is used to display the strenght of the fan motor velocity. 
+  The purpose of the display is only to visualize the status of the global system. It display 0 if it is off, otherwise 1.
 
 * **Motor : `Mabuchi FC-130RA/SA`**
 
