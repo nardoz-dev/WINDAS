@@ -44,7 +44,7 @@ static const uint8_t digit_values[][7] = {
     {0, 0, 0, 0, 0, 0, 1}, // 0
     {1, 0, 0, 1, 1, 1, 1}, // 1    /* OSS IMPORTANTE WORKA SOLO 0-1 CHECK SU ALTRI NUMERI*/
     {0, 0, 1, 0, 0, 1, 0}, // 2
-    {1, 1, 1, 1, 0, 0, 1}, // 3
+    {0, 0, 0, 0, 1, 1, 0}, // 3
     {0, 1, 1, 0, 0, 1, 1}, // 4
     {1, 0, 1, 1, 0, 1, 1}, // 5
     {1, 0, 1, 1, 1, 1, 1}, // 6
@@ -127,7 +127,7 @@ int main(void){
 
     //Initialize display pin
     init_display();
-    set_digit_value(1);
+    set_digit_value(0);
     /*
 
     // Fix port parameter for digital sensor 
