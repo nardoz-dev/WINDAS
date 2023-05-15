@@ -43,7 +43,7 @@ gpio_t SEGMENT_G = GPIO_PIN(PORT_B,4);
 static const uint8_t digit_values[][7] = {
     {0, 0, 0, 0, 0, 0, 1}, // 0
     {1, 0, 0, 1, 1, 1, 1}, // 1    /* OSS IMPORTANTE WORKA SOLO 0-1 CHECK SU ALTRI NUMERI*/
-    {1, 1, 0, 1, 1, 0, 1}, // 2
+    {0, 0, 1, 0, 0, 1, 0}, // 2
     {1, 1, 1, 1, 0, 0, 1}, // 3
     {0, 1, 1, 0, 0, 1, 1}, // 4
     {1, 0, 1, 1, 0, 1, 1}, // 5
