@@ -1,182 +1,272 @@
-/Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib/panic.o: \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/panic.c \
- /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/kernel_defines.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/modules.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/riot_version.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/stdint.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machine/_default_types.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/features.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/_newlib_version.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_intsup.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/compiler_hints.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/container.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/cpu.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/stdio.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/_ansi.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/newlib-nano/newlib.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/config.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdarg.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/reent.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/_ansi.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_types.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machine/_types.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/lock.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/assert.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/stdio.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/irq.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/cpu_conf.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/cpu_conf_common.h \
- /Users/nardoz/Documents/university/workspace/RIOT/build/stm32/cmsis/f4/Include/stm32f4xx.h \
- /Users/nardoz/Documents/university/workspace/RIOT/build/stm32/cmsis/f4/Include/stm32f401xe.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/core_cm4.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/cmsis_version.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/cmsis_compiler.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/cmsis_gcc.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/mpu_armv7.h \
- /Users/nardoz/Documents/university/workspace/RIOT/build/stm32/cmsis/f4/Include/system_stm32f4xx.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/irqs/f4/irqs.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/irq_arch.h \
- /Users/nardoz/Documents/university/workspace/RIOT/sys/include/debug_irq_disable.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/include/sched.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/inttypes.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/include/native_sched.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/clist.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/list.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/include/thread.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/cib.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/assert.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/include/msg.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/include/sched.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/thread_config.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/thread_arch.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/panic.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/kernel_defines.h \
- /Users/nardoz/Documents/university/workspace/RIOT/drivers/include/periph/pm.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph_cpu.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include-fixed/limits.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/macros/units.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_backup_ram.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_common.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_dma.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_eth.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_gpio.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_gpio.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_gpio_ll.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_i2c.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_ltdc.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_pm.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_pwm.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_timer.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_qdec.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_spi.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_dma.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_timer.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_uart.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_usbdev.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_vbat.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_wdt.h \
- /Users/nardoz/Documents/university/workspace/RIOT/sys/include/timex.h \
- /Users/nardoz/Documents/university/workspace/RIOT/sys/include/time_units.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_common.h \
- /Users/nardoz/Documents/university/workspace/RIOT/sys/include/pm_layered.h \
- /Users/nardoz/Documents/university/workspace/RIOT/sys/include/architecture.h \
- /Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/architecture_arch.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/log.h
-/Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/kernel_defines.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/modules.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/riot_version.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/stdint.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machine/_default_types.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/features.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/_newlib_version.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_intsup.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/compiler_hints.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/container.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/cpu.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/stdio.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/_ansi.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/newlib-nano/newlib.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/config.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/cdefs.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdarg.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/reent.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/_ansi.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/_types.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/machine/_types.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/lock.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/assert.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/sys/stdio.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/irq.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/cpu_conf.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/cpu_conf_common.h:
-/Users/nardoz/Documents/university/workspace/RIOT/build/stm32/cmsis/f4/Include/stm32f4xx.h:
-/Users/nardoz/Documents/university/workspace/RIOT/build/stm32/cmsis/f4/Include/stm32f401xe.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/core_cm4.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/cmsis_version.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/cmsis_compiler.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/cmsis_gcc.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/vendor/mpu_armv7.h:
-/Users/nardoz/Documents/university/workspace/RIOT/build/stm32/cmsis/f4/Include/system_stm32f4xx.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/irqs/f4/irqs.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/irq_arch.h:
-/Users/nardoz/Documents/university/workspace/RIOT/sys/include/debug_irq_disable.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/include/sched.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/arm-none-eabi/include/inttypes.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/include/native_sched.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/clist.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/list.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/include/thread.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/cib.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/assert.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/include/msg.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/include/sched.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/thread_config.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/thread_arch.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/panic.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/kernel_defines.h:
-/Users/nardoz/Documents/university/workspace/RIOT/drivers/include/periph/pm.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph_cpu.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include-fixed/limits.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/macros/units.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_backup_ram.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_common.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_dma.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_eth.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_gpio.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_gpio.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_gpio_ll.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_i2c.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_ltdc.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_pm.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_pwm.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_timer.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_qdec.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_spi.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_dma.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_timer.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_uart.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_usbdev.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_vbat.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_wdt.h:
-/Users/nardoz/Documents/university/workspace/RIOT/sys/include/timex.h:
-/Users/nardoz/Documents/university/workspace/RIOT/sys/include/time_units.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/stm32/include/periph/cpu_common.h:
-/Users/nardoz/Documents/university/workspace/RIOT/sys/include/pm_layered.h:
-/Users/nardoz/Documents/university/workspace/RIOT/sys/include/architecture.h:
-/Users/nardoz/Documents/university/workspace/RIOT/cpu/cortexm_common/include/architecture_arch.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/log.h:
+/home/nardo/Desktop/WINDFORME/app/bin/nucleo-f401re/core_lib/panic.o: \
+ /home/nardo/Desktop/RIOT/core/lib/panic.c \
+ /home/nardo/Desktop/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/kernel_defines.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/modules.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/riot_version.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/compiler_hints.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/container.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/cpu.h \
+ /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
+ /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
+ /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
+ /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h \
+ /usr/include/newlib/machine/_default_types.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h \
+ /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h \
+ /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h \
+ /usr/include/newlib/sys/lock.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/assert.h \
+ /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h \
+ /usr/include/newlib/sys/_pthreadtypes.h \
+ /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/irq.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/cpu_conf.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/cpu_conf_common.h \
+ /home/nardo/Desktop/RIOT/build/stm32/cmsis/f4/Include/stm32f4xx.h \
+ /home/nardo/Desktop/RIOT/build/stm32/cmsis/f4/Include/stm32f401xe.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/core_cm4.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/cmsis_version.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/cmsis_compiler.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/cmsis_gcc.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/mpu_armv7.h \
+ /home/nardo/Desktop/RIOT/build/stm32/cmsis/f4/Include/system_stm32f4xx.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/irqs/f4/irqs.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/irq_arch.h \
+ /home/nardo/Desktop/RIOT/sys/include/debug_irq_disable.h \
+ /home/nardo/Desktop/RIOT/core/include/sched.h \
+ /usr/include/newlib/inttypes.h /usr/include/newlib/sys/_intsup.h \
+ /home/nardo/Desktop/RIOT/core/include/native_sched.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/clist.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/list.h \
+ /home/nardo/Desktop/RIOT/core/include/thread.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/cib.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/assert.h \
+ /home/nardo/Desktop/RIOT/core/include/msg.h \
+ /home/nardo/Desktop/RIOT/core/include/sched.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/thread_config.h \
+ /home/nardo/Desktop/RIOT/core/include/thread_flags.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/thread_arch.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/panic.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/kernel_defines.h \
+ /home/nardo/Desktop/RIOT/drivers/include/periph/pm.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph_cpu.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/macros/units.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_backup_ram.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_common.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_dma.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_eth.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_gpio.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_gpio.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_gpio_ll.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_i2c.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_ltdc.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_pm.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_pwm.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_timer.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_qdec.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_spi.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_dma.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_timer.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_uart.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_usbdev.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_vbat.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_wdt.h \
+ /home/nardo/Desktop/RIOT/sys/include/timex.h \
+ /home/nardo/Desktop/RIOT/sys/include/time_units.h \
+ /home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_common.h \
+ /home/nardo/Desktop/RIOT/sys/include/pm_layered.h \
+ /home/nardo/Desktop/RIOT/sys/include/architecture.h \
+ /home/nardo/Desktop/RIOT/cpu/cortexm_common/include/architecture_arch.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/log.h
+
+/home/nardo/Desktop/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/kernel_defines.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/modules.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/riot_version.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/compiler_hints.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/container.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/cpu.h:
+
+/usr/include/newlib/stdio.h:
+
+/usr/include/newlib/_ansi.h:
+
+/usr/include/newlib/nano/newlib.h:
+
+/usr/include/newlib/_newlib_version.h:
+
+/usr/include/newlib/sys/config.h:
+
+/usr/include/newlib/machine/ieeefp.h:
+
+/usr/include/newlib/sys/features.h:
+
+/usr/include/newlib/sys/cdefs.h:
+
+/usr/include/newlib/machine/_default_types.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h:
+
+/usr/include/newlib/sys/reent.h:
+
+/usr/include/newlib/_ansi.h:
+
+/usr/include/newlib/sys/_types.h:
+
+/usr/include/newlib/machine/_types.h:
+
+/usr/include/newlib/sys/lock.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/assert.h:
+
+/usr/include/newlib/sys/types.h:
+
+/usr/include/newlib/sys/_stdint.h:
+
+/usr/include/newlib/sys/_pthreadtypes.h:
+
+/usr/include/newlib/machine/types.h:
+
+/usr/include/newlib/sys/stdio.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/irq.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/cpu_conf.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/cpu_conf_common.h:
+
+/home/nardo/Desktop/RIOT/build/stm32/cmsis/f4/Include/stm32f4xx.h:
+
+/home/nardo/Desktop/RIOT/build/stm32/cmsis/f4/Include/stm32f401xe.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/core_cm4.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/cmsis_version.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/cmsis_compiler.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/cmsis_gcc.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/vendor/mpu_armv7.h:
+
+/home/nardo/Desktop/RIOT/build/stm32/cmsis/f4/Include/system_stm32f4xx.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/irqs/f4/irqs.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/irq_arch.h:
+
+/home/nardo/Desktop/RIOT/sys/include/debug_irq_disable.h:
+
+/home/nardo/Desktop/RIOT/core/include/sched.h:
+
+/usr/include/newlib/inttypes.h:
+
+/usr/include/newlib/sys/_intsup.h:
+
+/home/nardo/Desktop/RIOT/core/include/native_sched.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/clist.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/list.h:
+
+/home/nardo/Desktop/RIOT/core/include/thread.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/cib.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/assert.h:
+
+/home/nardo/Desktop/RIOT/core/include/msg.h:
+
+/home/nardo/Desktop/RIOT/core/include/sched.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/thread_config.h:
+
+/home/nardo/Desktop/RIOT/core/include/thread_flags.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/thread_arch.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/panic.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/kernel_defines.h:
+
+/home/nardo/Desktop/RIOT/drivers/include/periph/pm.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph_cpu.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/macros/units.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_backup_ram.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_common.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_dma.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_eth.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_gpio.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_gpio.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_gpio_ll.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_i2c.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_ltdc.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_pm.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_pwm.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_timer.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_qdec.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_spi.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_dma.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_timer.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_uart.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_usbdev.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_vbat.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_wdt.h:
+
+/home/nardo/Desktop/RIOT/sys/include/timex.h:
+
+/home/nardo/Desktop/RIOT/sys/include/time_units.h:
+
+/home/nardo/Desktop/RIOT/cpu/stm32/include/periph/cpu_common.h:
+
+/home/nardo/Desktop/RIOT/sys/include/pm_layered.h:
+
+/home/nardo/Desktop/RIOT/sys/include/architecture.h:
+
+/home/nardo/Desktop/RIOT/cpu/cortexm_common/include/architecture_arch.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/log.h:
