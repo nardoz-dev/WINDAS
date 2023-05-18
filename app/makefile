@@ -18,9 +18,8 @@ USEMODULE += netdev_default
 USEMODULE += auto_init_gnrc_netif
 # Specify the mandatory networking modules for IPv6
 USEMODULE += gnrc_ipv6_default
-# Optimize network stack to for use with a single network interface
-USEMODULE += gnrc_netif_single				#opzionale 
-USEMODULE += sock_udp
+# Optimize the use of network interface
+USEMODULE += gnrc_netif_single  #non necessario
 USEMODULE += stdio_ethos gnrc_uhcpc
 # Include MQTT-SN implementation
 USEMODULE += emcute
