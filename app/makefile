@@ -28,7 +28,8 @@ EMCUTE_ID ?= 01
 ETHOS_BAUDRATE ?= 115200
 TAP ?= tap0
 USE_DHCPV6 ?= 0
-IPV6_PREFIX ?= fec0:affe::/64
+# IPV6_PREFIX ?= fec0:affe::1/64
+IPV6_PREFIX ?= fe80:2::/64
 # IPv6 and port of the MQTT broker
 SERVER_ADDR = fec0:affe::1
 SERVER_PORT = 1885

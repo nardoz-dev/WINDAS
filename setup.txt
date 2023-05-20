@@ -1,0 +1,26 @@
+MQTT LISTENER 		1885
+MQTT-SN LISTENER 	1886
+
+-----------------------------
+
+
+Come primo avvio : 
+
+- Setup the interfaces and the bridge using RIOT's tapsetup script
+	sudo ../RIOT/dist/tools/tapsetup/tapsetup -c 2 ( -d per deletare )
+	sudo ip a a fec0:affe::1/64 dev tap0            - fec0:affe::1 senza /64
+	make ?all? term
+	
+
+
+-requirements.txt per il bridge!
+pip3 install AWSIoTPythonSDK
+pip3 install paho-mqtt
+
+
+
+
+
+- endpoint 
+
+a3b5fvirnosinx-ats.iot.eu-west-1.amazonaws.com

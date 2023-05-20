@@ -344,3 +344,46 @@ ul.footer-menu li a:hover {
         margin-right: 9px;
     }
 }
+
+
+
+.charTemp{
+    grid-area: charTemp;
+    vertical-align: top;
+}
+/*
+.charHum {
+    width: 550px;
+    height: 400px;
+    grid-area: chartHum;
+    display: inline-block;
+    vertical-align: top;
+}
+*/
+.data_temp{
+    display: inline-block;
+    text-align:right;
+}
+#relay_buttons {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#relay_buttons button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 8px;
+    border: none;
+    background-color: #2958a4;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+#relay_buttons button:hover {
+    background-color: #6e9ae7;
+}
