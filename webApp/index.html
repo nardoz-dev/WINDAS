@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>WindForMe</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script src="js/index.js"></script>
+  <link href="css/style.css" rel="stylesheet">
+  
+  
+</head>
+
+    <body id="page-top" data-spy="scroll" data-target=".side-menu">
+      <nav class="side-menu">
+        <ul>
+          <li class="hidden active">
+            <a class="page-scroll" href="#page-top"></a>
+          </li>
+          <li>
+            <a href="#home" class="page-scroll">
+              <span class="menu-title">Home</span>
+              <span class="dot"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#data" class="page-scroll">
+              <span class="menu-title">Data</span>
+              <span class="dot"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container-fluid">
+        <!-- Start: Header -->
+        <div class="row hero-header" id="home">
+          <div class="col-md-7">
+            <h1>WindForMe IoT Application</h1>
+            <h3>University IoT Project in Sapienza </h3>
+            <h4>2022/2023</h4>
+            <a href="https://github.com/nardoz-dev/WINDFORME" class="btn btn-lg btn-red">GitHub Repo</a>
+            <br>
+            <a href="https://github.com/nardoz-dev/WINDFORME" class="btn btn-lg btn-red">BlogPost</a>
+
+          </div>
+          <div class="col-md-5 hidden-xs">
+            <img src="img/testimage.png" class="rocket animated bounce">
+          </div>
+        </div>
+        <!-- End: Header -->
+      </div>
+      
+      <div class="container">
+		  
+        <!-- Start: Speakers -->
+        <div class="row me-row content-ct speaker" id="data">
+          <h2 class="row-title">Data Collection</h2>
+              <!--Charts-->
+              <div class="charTemp">
+                <canvas id="chartTemp"></canvas>
+              </div>
+              <div class="charHum">
+                <canvas id="chartHum"></canvas>
+              </div>
+
+              <!--Buttons-->
+              <div class="buttons">
+                <div class="data_temp">
+                  <p id="avg_temp">AVG in last Hour: none</p>
+                  <p id="MAX_temp">MAX in last Hour: none</p>
+                  <p id="MIN_temp">MIN in last Hour: none</p>
+                  <p id="delta_temp">Variation in last Hour: none</p>
+                </div>
+                <div id="relay_buttons">
+                  <button type="button" id="r1" onclick="postLambdaFunction()"> Fan Always On</button>
+                  <button type="button" id="r0" onclick="sendCommand('r0')"> Fan Always Off</button>
+                  <button type="button" id="r2" onclick="sendCommand('r2')"> Fan Automatic</button>
+                </div>
+            </div>
+        </div>
+        <!-- End: Speakers -->
+        
+      </div>
+
+     
+      <!-- Start: Footer -->
+      <div class="container-fluid footer">
+        <div class="row footer-credit">
+          <div class="col-md-6 col-sm-6">
+            <p>&copy; 2023, <a href="https://github.com/nardoz-dev">nardoz-dev</a> | All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+      <!-- End: Footer -->
+
+
+    </body>
+
+
+    </html>

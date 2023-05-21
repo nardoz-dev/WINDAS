@@ -1,0 +1,51 @@
+MQTT LISTENER 		1885
+MQTT-SN LISTENER 	1886
+
+-----------------------------
+
+
+Come primo avvio : 
+
+- Setup the interfaces and the bridge using RIOT's tapsetup script
+	sudo ../RIOT/dist/tools/tapsetup/tapsetup -c 2 ( -d per deletare )
+	sudo ip a a fec0:affe::1/64 dev tapbr0            - fec0:affe::1 senza /64
+	make ?all? term
+	
+
+
+-requirements.txt per il bridge!
+pip3 install AWSIoTPythonSDK
+pip3 install paho-mqtt
+
+
+
+
+
+- endpoint 
+
+a3b5fvirnosinx-ats.iot.eu-west-1.amazonaws.com
+
+
+FUNCTION URL READ TEMPERATURE
+https://twjlutt2xbqhlnviply6nzgtjy0ccmny.lambda-url.eu-west-1.on.aws/
+
+
+---------------------------
+
+OSS: 
+Lambda function . crearle con il loro ruolo di default.
+Primo appunto, aggiungere alla policy la lettura di DynamoDB.
+basta modificare quella esistente e aggiungergli questo.
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:Scan"
+            ],
+            "Resource": "arn:aws:dynamodb:eu-west-1:417891568674:table/temperature_table"
+        }
+    ]
+}
+

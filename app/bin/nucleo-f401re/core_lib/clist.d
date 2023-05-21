@@ -1,12 +1,17 @@
-/Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/core_lib/clist.o: \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/clist.c \
- /Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/clist.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h \
- /Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h \
- /Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/list.h
-/Users/nardoz/Documents/university/workspace/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/clist.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stdbool.h:
-/Applications/ArmGNUToolchain/12.2.mpacbti-rel1/arm-none-eabi/lib/gcc/arm-none-eabi/12.2.1/include/stddef.h:
-/Users/nardoz/Documents/university/workspace/RIOT/core/lib/include/list.h:
+/home/nardo/Desktop/WINDFORME/app/bin/nucleo-f401re/core_lib/clist.o: \
+ /home/nardo/Desktop/RIOT/core/lib/clist.c \
+ /home/nardo/Desktop/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/clist.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
+ /home/nardo/Desktop/RIOT/core/lib/include/list.h
+
+/home/nardo/Desktop/WINDFORME/app/bin/nucleo-f401re/riotbuild/riotbuild.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/clist.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h:
+
+/home/nardo/Desktop/RIOT/core/lib/include/list.h:
