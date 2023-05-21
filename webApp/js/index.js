@@ -47,5 +47,58 @@ document.addEventListener('DOMContentLoaded', function() {
         data: data_hum
     });
     */
+    //const lambdaUrl = 'https://twjlutt2xbqhlnviply6nzgtjy0ccmny.lambda-url.eu-west-1.on.aws';
+    
+    async function invokeLambdaFunction() {
+        try {
+          const lambdaFunctionURL = 'https://peu4sutlyzjphwafmkif5slj5y0tchlz.lambda-url.eu-west-1.on.aws/'; // Replace with the actual Lambda Function URL
+        
+          const response = await fetch(lambdaFunctionURL, {
+            method: 'GET'
+          });
+        
+          if (response.ok) {
+            const data = await response.json();
+            console.log('Lambda function invocation successful!');
+            console.log('Response:', data);
+          } else {
+            console.error('Lambda function invocation failed with status:', response.status);
+          }
+        } catch (error) {
+          console.error('Error invoking Lambda function:', error.message);
+        }
+      }
+      
+    //invokeLambdaFunction();
+
 });
+
+
+// Send to Board
+async function postLambdaFunction() {
+    console.log("PuercosLosDios")
+    var requestOptions = {
+        method: 'POST'
+    };
+    fetch("https://mzmk5uzj2fjrah5cqlcynm3ome0swley.lambda-url.eu-west-1.on.aws/", requestOptions)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Errore nella richiesta: " + response.status);
+        }
+        return response.text();
+        })
+        .then(data => {
+        console.log("Risposta:", data);
+        })
+        .catch(error => {
+        console.error("Errore durante la chiamata fetch:", error);
+        });
+}
+
+  
+  
+  
+  
+  
+  
 

@@ -33,6 +33,13 @@ static void on_pub(const emcute_topic_t *topic, void *data, size_t len){
     (void)len;
     char *in = (char *)data;
 
+    printf(" Contenuto di in : %s", in);
+
+    char msg[len+1];
+    strncpy(msg, in, len);
+    msg[len] = '\0';
+    printf(" Contenuto di msg : %s", msg);
+
     printf("### got publication for topic '%s' [%i] ###\n",
            topic->name, (int)topic->id);
     for (size_t i = 0; i < len; i++) {
@@ -198,7 +205,7 @@ int main(void){
 
     printf("\n Starting subscription . \n");
     if(sub()){
-        printf("\n E: Something went wrong while subscribing to the writing topic ");
+        printf("\n E: Something went wrong while subscribing to the topic ");
         
         return 1;
     }

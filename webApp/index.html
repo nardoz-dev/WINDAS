@@ -12,6 +12,7 @@
   
   
 </head>
+
     <body id="page-top" data-spy="scroll" data-target=".side-menu">
       <nav class="side-menu">
         <ul>
@@ -73,7 +74,7 @@
                   <p id="delta_temp">Variation in last Hour: none</p>
                 </div>
                 <div id="relay_buttons">
-                  <button type="button" id="r1" onclick="sendCommand('r1')"> Fan Always On</button>
+                  <button type="button" id="r1" onclick="postLambdaFunction()"> Fan Always On</button>
                   <button type="button" id="r0" onclick="sendCommand('r0')"> Fan Always Off</button>
                   <button type="button" id="r2" onclick="sendCommand('r2')"> Fan Automatic</button>
                 </div>
