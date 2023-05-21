@@ -13,6 +13,17 @@
 #include "net/emcute.h"
 #include "net/ipv6/addr.h"
 
+// Macro for networks processes.
+#define _IPV6_DEFAULT_PREFIX_LEN    (64U)
+#define EMCUTE_PRIO         (THREAD_PRIORITY_MAIN - 1)
+#define NUMOFSUBS           (1U)
+#define TOPIC_MAXLEN        (64U)
+#define DEVICE_IP_ADDRESS   ("fec0:affe::99")
+#define DEFAULT_INTERFACE   ("4")
+
+#define MQTT_TOPIC          "my_topic"
+#define MQTT_QoS            (EMCUTE_QOS_0)
+
 /* GPIO pin for 7Segment Display*/
 gpio_t SEGMENT_A = GPIO_PIN(PORT_B,10);   
 gpio_t SEGMENT_B = GPIO_PIN(PORT_B,3);
@@ -29,8 +40,6 @@ static const uint8_t digit_values[][7] = {
     {0, 0, 1, 0, 0, 1, 0}, // 2
     {0, 0, 0, 0, 1, 1, 0}, // 3         
 };
-
-
 //Display initialization
 void init_display(void) {
     gpio_init(SEGMENT_A, GPIO_OUT);
@@ -41,9 +50,6 @@ void init_display(void) {
     gpio_init(SEGMENT_F, GPIO_OUT);
     gpio_init(SEGMENT_G, GPIO_OUT);
 }
-
-#define _IPV6_DEFAULT_PREFIX_LEN    (64U)
-
 // Set value on display
 void set_digit_value(int value) {
     const uint8_t* segment_values = digit_values[value];
@@ -55,15 +61,8 @@ void set_digit_value(int value) {
     gpio_write(SEGMENT_F, segment_values[5]);
     gpio_write(SEGMENT_G, segment_values[6]);
 }
-#define EMCUTE_PRIO         (THREAD_PRIORITY_MAIN - 1)
-#define NUMOFSUBS           (1U)
-#define TOPIC_MAXLEN        (64U)
-#define DEVICE_IP_ADDRESS   ("fec0:affe::99")
-#define DEFAULT_INTERFACE   ("4")
 
 
-#define MQTT_TOPIC          "my_topic"
-#define MQTT_QoS            (EMCUTE_QOS_0)
 
 static char stack[THREAD_STACKSIZE_DEFAULT];
 static char temperature_stack[THREAD_STACKSIZE_DEFAULT];
@@ -238,9 +237,16 @@ int main(void){
             "using RIOT DHT peripheral driver and Motor Mabuchi FC130\n"
             "DHT sensor type %d . Motor Type FC 130RA/SA \n", 22);
 
+  
+    // Device setup 
+    
     //Initialize display pin
     //init_display();
     //set_digit_value(0);
+
+    //Initialize gpio pin
+    //init_gpiopin();
+    //init_component();
     
 
     xtimer_sleep(2);
