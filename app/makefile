@@ -52,10 +52,10 @@ ifneq (,$(EMCUTE_ID))
 endif
 
 # Modules to include:
-# USEMODULE += dht
-# USEMODULE += fmt
+USEMODULE += dht
+USEMODULE += fmt
 USEMODULE += xtimer
-# USEMODULE += periph_gpio
+USEMODULE += periph_gpio
 
 include $(CURDIR)/Makefile.ethos.conf
 include $(RIOTBASE)/Makefile.include

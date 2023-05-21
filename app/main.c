@@ -16,7 +16,7 @@
 // Macro for networks processes.
 #define _IPV6_DEFAULT_PREFIX_LEN    (64U)
 #define EMCUTE_PRIO         (THREAD_PRIORITY_MAIN - 1)
-#define NUMOFSUBS           (1U)
+#define NUMOFSUBS           (16U)
 #define TOPIC_MAXLEN        (64U)
 #define DEVICE_IP_ADDRESS   ("fec0:affe::99")
 #define DEFAULT_INTERFACE   ("4")
@@ -32,45 +32,37 @@ gpio_t SEGMENT_D = GPIO_PIN(PORT_B,6);
 gpio_t SEGMENT_E = GPIO_PIN(PORT_A,10);
 gpio_t SEGMENT_F = GPIO_PIN(PORT_B,5);
 gpio_t SEGMENT_G = GPIO_PIN(PORT_B,4);
+// Initialize GPIO pin for motor 
+gpio_t motor_pin = GPIO_PIN(PORT_C,7);
 
-// Array di valori per le singole cifre del display
+/* Constant for internal algorithm */
+typedef enum{
+    AUTO = 0,
+    ACTIVE = 1,
+    OFF = 2
+} state_t;
+state_t system_mod = AUTO;
+dht_t dev;
+
+// Array di valori per le singole cifre del display 
+/*//(only 0,1 but the concept is easy, 0 to turn on led segment, 1 otherwise.)
 static const uint8_t digit_values[][7] = {
     {0, 0, 0, 0, 0, 0, 1}, // 0
-    {1, 0, 0, 1, 1, 1, 1}, // 1    
-    {0, 0, 1, 0, 0, 1, 0}, // 2
-    {0, 0, 0, 0, 1, 1, 0}, // 3         
+    {1, 0, 0, 1, 1, 1, 1}, // 1          
 };
-//Display initialization
-void init_display(void) {
-    gpio_init(SEGMENT_A, GPIO_OUT);
-    gpio_init(SEGMENT_B, GPIO_OUT);
-    gpio_init(SEGMENT_C, GPIO_OUT);
-    gpio_init(SEGMENT_D, GPIO_OUT);
-    gpio_init(SEGMENT_E, GPIO_OUT);
-    gpio_init(SEGMENT_F, GPIO_OUT);
-    gpio_init(SEGMENT_G, GPIO_OUT);
-}
-// Set value on display
-void set_digit_value(int value) {
-    const uint8_t* segment_values = digit_values[value];
-    gpio_write(SEGMENT_A, segment_values[0]);
-    gpio_write(SEGMENT_B, segment_values[1]);
-    gpio_write(SEGMENT_C, segment_values[2]);
-    gpio_write(SEGMENT_D, segment_values[3]);
-    gpio_write(SEGMENT_E, segment_values[4]);
-    gpio_write(SEGMENT_F, segment_values[5]);
-    gpio_write(SEGMENT_G, segment_values[6]);
-}
-
-
-
+*/
 static char stack[THREAD_STACKSIZE_DEFAULT];
 static char temperature_stack[THREAD_STACKSIZE_DEFAULT];
-
-
 static emcute_sub_t subscriptions[NUMOFSUBS];
-//static char topics[NUMOFSUBS][TOPIC_MAXLEN];
 
+// Emcute Thread  -------------------------------
+static void *emcute_thread(void *arg){
+    (void)arg;
+    emcute_run(CONFIG_EMCUTE_DEFAULT_PORT, EMCUTE_ID);
+    return NULL;    /* should never be reached */
+}
+
+// Message sending management -------------------
 //Function called when a message is published on the topic the board is subscribed
 static void on_pub(const emcute_topic_t *topic, void *data, size_t len){
     (void)topic;
@@ -91,15 +83,11 @@ static void on_pub(const emcute_topic_t *topic, void *data, size_t len){
     }
     puts("");
 
-}
+    //Chiamare motor handling
 
 
-static void *emcute_thread(void *arg){
-    (void)arg;
-    emcute_run(CONFIG_EMCUTE_DEFAULT_PORT, EMCUTE_ID);
-    return NULL;    /* should never be reached */
 }
-// Function for sending data
+// Function for publish message to a topic
 static int publish(char *t, char *message){
     emcute_topic_t topic;
     topic.name = t;
@@ -119,16 +107,135 @@ static int publish(char *t, char *message){
     //    message, (int)strlen(message), topic.name, topic.id);
     return 0;
 }
-void *send_data(void* arg){
+
+// ComponentHandler -----------------------------
+// Set value on display
+/*
+void set_digit_value(int value) {
+    const uint8_t* segment_values = digit_values[value];
+    gpio_write(SEGMENT_A, segment_values[0]);
+    gpio_write(SEGMENT_B, segment_values[1]);
+    gpio_write(SEGMENT_C, segment_values[2]);
+    gpio_write(SEGMENT_D, segment_values[3]);
+    gpio_write(SEGMENT_E, segment_values[4]);
+    gpio_write(SEGMENT_F, segment_values[5]);
+    gpio_write(SEGMENT_G, segment_values[6]);
+}
+*/
+void *sampling_temperature(void* arg){
     (void)arg;
+    bool dataFlag = false;
+    bool flag_on = true;
+    bool flag_off = true;
     while(1){
-        char message[9];
-        sprintf(message,"36");
-        publish(MQTT_TOPIC,message); 
-        xtimer_sleep(20); 
+        // Retrieve sensor reading 
+        int16_t temp, hum;
+        if (dht_read(&dev, &temp, &hum) != DHT_OK) {
+            printf("sampling_temperature: Error reading values\n");
+            dataFlag = true;
+        }
+        if(!dataFlag){
+            // Extract + format temperature from sensor reading 
+            char temp_s[10];
+            size_t n = fmt_s16_dfp(temp_s, temp, -1);
+            temp_s[n] = '\0';
+
+            // Extract + format humidity from sensor reading 
+            char hum_s[10];
+            n = fmt_s16_dfp(hum_s, hum, -1);
+            hum_s[n] = '\0';
+
+            printf("DHT values - temp: %s°C - relative humidity: %s%%\n",temp_s, hum_s);
+
+            //setting up message to send
+            char message[15];    
+            sprintf(message,"t%dh%d", temp, hum);
+            publish(MQTT_TOPIC, message); //publishing message on broker  
+
+            if(system_mod == AUTO ){
+                if (flag_on && ((unsigned int)temp >= 255)) {
+                    printf("Temperature above threshold - activating motor\n");
+                    //set_digit_value(1);
+                    //gpio_set(motor_pin);
+                    flag_on = false;
+                }
+                if(flag_off && ((unsigned int)temp <= 254)) {
+                    printf("Temperature under threshold - deactivating motor \n");
+                    //set_digit_value(0);
+                    //gpio_clear(motor_pin);
+                    flag_off = false;
+                }
+            }
+
+            
+        }else{
+            // Qui invece dobbiamo inviare un messaggio d'errore da gestire attraverso la web app per far capire che c'è stato un errore sul campling dei dati
+            // al momento non inviamo niente.
+        }
+
+        dataFlag=false;
+
+        // Sampling rate 10 for testing - 3 for video purpose
+        xtimer_sleep(2);
     }
 }
-// Function Setup
+
+/*
+void motor_handling(char *message){
+GESTIONE DI TUTTA LA FASE DI AVVIO FORZATO E OFF FORZATO DEL SERVO.
+switch(system_mod){
+    case AUTO:  
+        system_mod = 
+        break;
+    case ACTIVE:
+        printf("\n Motor activation by external control\n")
+        set_digit_value(1);
+        gpio_set(motor_pin);
+        break;
+    case OFF:
+        printf("\n Motor deactivation by external control\n")
+        set_digit_value(0);
+        gpio_clear(motor_pin);
+        break;  
+    default:
+        printf("\n sampling_temperature : error during switch case of system_mod variable\n");
+}
+*/
+
+// Initialization -------------------------------
+static int init_component(void){
+    /*// GPIO pin for 7-segment display
+    gpio_init(SEGMENT_A, GPIO_OUT);
+    gpio_init(SEGMENT_B, GPIO_OUT);
+    gpio_init(SEGMENT_C, GPIO_OUT);
+    gpio_init(SEGMENT_D, GPIO_OUT);
+    gpio_init(SEGMENT_E, GPIO_OUT);
+    gpio_init(SEGMENT_F, GPIO_OUT);
+    gpio_init(SEGMENT_G, GPIO_OUT);
+    */
+    // Fix port parameter for digital sensor 
+    dht_params_t my_params;
+    my_params.pin = GPIO_PIN(PORT_A, 8);
+    my_params.in_mode = DHT_PARAM_PULL;
+
+    // Initialize sensor 
+    if (dht_init(&dev, &my_params) == DHT_OK) {
+        printf("init_component: DHT sensor connected\n");
+    }
+    else {
+        printf("init_component: Failed to connect to DHT sensor\n");
+        return 1;
+    }
+    /*
+    if (gpio_init(motor_pin, GPIO_OUT)) {
+        printf("init_component: Error to initialize GPIO_PIN(%d %d)\n", PORT_C, 9);
+        return -1;
+    }
+    */
+    printf("init_component: Initialization components completed. ");
+    return 0;
+}
+// MQTT Initialization and subscription
 static int sub(void){
     //Setup subscription
     subscriptions[0].cb = on_pub;
@@ -230,24 +337,24 @@ static int setup_mqtt(void){
     return 0;
 }
 
+// Main -----------------------------------------
 int main(void){
 
     printf("RIOT windforme application\n"
             "AirCooler Test Application\n"
             "using RIOT DHT peripheral driver and Motor Mabuchi FC130\n"
             "DHT sensor type %d . Motor Type FC 130RA/SA \n", 22);
-
   
-    // Device setup 
+    // Device initialization 
     
-    //Initialize display pin
-    //init_display();
-    //set_digit_value(0);
+    if(init_component()){
+        printf("\n E: Something failed during the init of components ");
+        return 1;
+    }
+    
 
-    //Initialize gpio pin
-    //init_gpiopin();
-    //init_component();
-    
+    //Display 0 : OFF on display 7-segment
+    //set_digit_value(0);
 
     xtimer_sleep(2);
     printf("RIOT mqtt test Application \n");
@@ -271,77 +378,10 @@ int main(void){
         return 1;
     }
 
-    /**** MAIN PART -----------------------------------------------------------------------------------------*/
-    /*
-    // Fix port parameter for digital sensor 
-    dht_params_t my_params;
-    my_params.pin = GPIO_PIN(PORT_A, 8);
-    my_params.in_mode = DHT_PARAM_PULL;
-
-    // Initialize digital sensor 
-    dht_t dev;
-    if (dht_init(&dev, &my_params) == DHT_OK) {
-        printf("DHT sensor connected\n");
-    }
-    else {
-        printf("Failed to connect to DHT sensor\n");
-        return 1;
-    }
-
-    // Initialize GPIO pin for motor 
-    gpio_t motor_pin = GPIO_PIN(PORT_C,7);
-    if (gpio_init(motor_pin, GPIO_OUT)) {
-        printf("Error to initialize GPIO_PIN(%d %d)\n", PORT_C, 9);
-        return -1;
-    }
-    int i = 0;
-    bool flag = false;
-    //flag to avoid conflit in case DHT sensor failed to reading values
-    bool controlflag = false;
-    while(i == 0){
-
-        printf("%u\n", (unsigned int)temp);
-         // Check temperature and activate motor if necessary 
-        if (((unsigned int)temp >= 255) && (!flag) && (!controlflag)) {
-            printf("Temperature above threshold - activating motor\n");
-            set_digit_value(1);
-            gpio_set(motor_pin);
-            flag = true;
-        }
-        if(((unsigned int)temp <= 254) && flag && (!controlflag)){
-            xtimer_sleep(2);
-            printf("Temperature under threshold - deactivating motor \n");
-            set_digit_value(0);
-            gpio_clear(motor_pin);
-            flag = false;
-            xtimer_sleep(5);
-        }
-        //only for testing - personal debug
-        if(controlflag){
-            printf("Reset, error on reading values from DHT sensor. Waiting ... ");
-            xtimer_sleep(3);
-            // force deactivation motor. 
-            // gpio_clear(motor_pin);
-            controlflag = false;
-            printf("\n Reset Completed \n");
-        }
-    }
-    */
-    /**** MAIN PART -----------------------------------------------------------------------------------------*/
-
-
-    /* Inizializzazione sensori - Anche prima. */
-    /*-----------------------------------------*/
-    /*-----------------------------------------*/
-    /*-----------------------------------------*/
-
-    //Handle thread creation
-    thread_create(temperature_stack, sizeof(temperature_stack),EMCUTE_PRIO, 0,send_data, NULL, "send_data");
+    //Handle thread creation for sampling data
+    thread_create(temperature_stack, sizeof(temperature_stack),EMCUTE_PRIO, 0, sampling_temperature, NULL, "sampling_temperature");
     printf("\n Thread for sending information created ");
 
     return 0;
 }
 
-    
-
-  

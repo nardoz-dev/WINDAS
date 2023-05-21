@@ -37,13 +37,16 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print("Received message:", msg.topic, msg.payload)
     
-    message = {}
-    message['temperature'] = str(msg.payload)[2:-1]
-    messageJson = json.dumps(message)
 
+    message = str(msg.payload)[2:len(str(msg.payload))-1]
+    message = message.split("h")
+    message_out = {}
+    message_out['temperature'] =  message[0][1:len(message[0])-1]+"."+ message[0][len(message[0])-1:]
+    message_out['humidity'] = message[1][:len(message[1])-1]+"."+ message[1][len(message[1])-1:]
+    messageJson = json.dumps(message_out)
     print("Json inviato  :   "+messageJson)
-    # Publishing message
-    # myAWSIoTMQTTClient.publish(TOPIC_TO_AWS, messageJson, 1)
+    #Publishing message
+    myAWSIoTMQTTClient.publish(TOPIC_TO_AWS, messageJson, 1)
 
 
 print("AWS Client connection")
@@ -65,8 +68,8 @@ mqttClient = mqtt.Client()
 mqttClient.on_connect = on_connect
 mqttClient.on_message = on_message
 
-print("AWSClient Subscription")
-myAWSIoTMQTTClient.subscribe(TOPIC_FROM_AWS,1,myCallback)
+#print("AWSClient Subscription")
+#myAWSIoTMQTTClient.subscribe(TOPIC_FROM_AWS,1,myCallback)
 
 
 # Connect to MQTT broker

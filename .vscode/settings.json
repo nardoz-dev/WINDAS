@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "internet": "c"
+        "internet": "c",
+        "random": "c"
     }
 }
