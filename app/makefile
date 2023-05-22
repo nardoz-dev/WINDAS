@@ -56,6 +56,7 @@ USEMODULE += dht
 USEMODULE += fmt
 USEMODULE += xtimer
 USEMODULE += periph_gpio
+USEMODULE += random
 
 include $(CURDIR)/Makefile.ethos.conf
 include $(RIOTBASE)/Makefile.include

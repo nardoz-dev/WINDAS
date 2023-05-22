@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "random.h"
 
 #include "main.h"
 
@@ -180,16 +181,24 @@ void *sampling_temperature(void* arg){
 
             
         }else{
+            uint32_t random_number;
+            int16_t temp,hum;
+            random_number = random_uint32();
 
-            var temp_s = (Math.floor(Math.random() * (35 - 28 + 1)) + 28).toString();
-            var temp_s = (Math.floor(Math.random() * (64 - 56 + 1)) + 56).toString();
+            temp = (int16_t)(random_number % (35 - 28 +1) +28);
+            hum = (int16_t)(random_number % (64 - 56 +1) +56);
+
+            char temp_s[10];
+            char hum_s[10];
+            snprintf(temp_s, sizeof(temp_s),"%d",temp);
+            snprintf(hum_s,sizeof(hum_s),"%d",hum);
             // Default Message for testing purpose* (DHT11 SENSOR BROKEN)
-            printf("\nDefault random value sending for TESTING purpose.")
+            printf("\nDefault random value sending for TESTING purpose.");
             printf("\nDHT values - temp: %s°C - relative humidity: %s%% ",temp_s, hum_s);
 
             //setting up message to send
-            char message[15];    
-            sprintf(message,"t%s%s", temp_s, hum_s);
+            char message[25];    
+            sprintf(message,"t%sh%s", temp_s, hum_s);
             publish(MQTT_TOPIC_EXT, message); //publishing message on broker 
         }
 

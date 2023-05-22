@@ -108,6 +108,7 @@ async function read_valueLambdaF(){
       });
       tempChart.update();
       humChart.update();
+      exec_measurements();
       
    
     } else {
@@ -119,6 +120,44 @@ async function read_valueLambdaF(){
 
 }
 
+function exec_measurements(){
+
+  const values = data_temp.datasets[0].data;
+
+  const max_temp = Math.max(...values);
+
+  const min_temp = Math.min(...values);
+
+  const sum_temp = values.reduce((acc, val) => acc + val, 0);
+  const avg_temp = sum_temp / values.length;
+
+  const variation = max_temp - min_temp;
+
+  //display to html
+  document.getElementById("AVG_temp").innerHTML = "AVG :" + avg_temp + "&degC "
+  document.getElementById("MAX_temp").innerHTML = "MAX :" + max_temp + "&degC " 
+  document.getElementById("MIN_temp").innerHTML = "MIN :" + min_temp + "&degC " 
+  document.getElementById("delta_temp").innerHTML = "Variation in last Hour:" + variation + "&degC"
+
+  const values2 = data_hum.datasets[0].data;
+
+  const max_hum = Math.max(...values);
+
+  const min_hum = Math.min(...values);
+
+  const sum_hum = values.reduce((acc, val) => acc + val, 0);
+  const avg_hum = sum_hum / values2.length;
+
+  const variation2 = max_hum - min_hum;
+
+
+  //display to html
+  document.getElementById("AVG_hum").innerHTML = "AVG :" + avg_hum + "%"
+  document.getElementById("MAX_hum").innerHTML = "MAX :" + max_hum + "%" 
+  document.getElementById("MIN_hum").innerHTML = "MIN :" + min_hum + "%" 
+  document.getElementById("delta_hum").innerHTML = "Variation in last Hour:" + variation2 + "%"
+
+}
 
 // ----------- MAIN FUNCTION ------------
 function main(){

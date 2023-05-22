@@ -61,9 +61,9 @@
             <canvas id="chartTemp"></canvas>
             <!--Measurements-->
             <div class="data_temp">
-              <p id="AVG_temp">AVG in last Hour: none</p>
-              <p id="MAX_temp">MAX in last Hour: none</p>
-              <p id="MIN_temp">MIN in last Hour: none</p>
+              <p id="AVG_temp">AVG : none</p>
+              <p id="MAX_temp">MAX : none</p>
+              <p id="MIN_temp">MIN : none</p>
               <p id="delta_temp">Variation in last Hour: none</p>
             </div>
           </div>
@@ -71,23 +71,24 @@
             <canvas id="chartHum"></canvas>
             <!--Measurements-->
             <div class="data_hum">
-              <p id="AVG_hum">AVG in last Hour: none</p>
-              <p id="MAX_hum">MAX in last Hour: none</p>
-              <p id="MIN_hum">MIN in last Hour: none</p>
-              <p id="delta_temp">Variation in last Hour: none</p>
+              <p id="AVG_hum">AVG : none</p>
+              <p id="MAX_hum">MAX : none</p>
+              <p id="MIN_hum">MIN : none</p>
+              <p id="delta_hum">Variation in last Hour: none</p>
             </div>
           </div>
 
           <!--Buttons-->
           <div class="buttons">
             <div id="relay_buttons">
-              <button type="button" onclick="postLambdaFunction('ON')"> Fan Always On</button>
-              <button type="button" onclick="postLambdaFunction('OFF')"> Fan Always Off</button>
-              <button type="button" onclick="postLambdaFunction('AUTO')"> Fan Automatic</button>
+              <button type="button" onclick="postLambdaFunction('ON')"> FORCE FAN ON</button>
+              <button type="button" onclick="postLambdaFunction('OFF')"> FORCE FAN OFF</button>
+              <button type="button" onclick="postLambdaFunction('AUTO')"> AUTOMATIC SYSTEM </button>
 
-              <button type="button" id="r0" onclick="test_interval()"> Start Campling </button>
-              <button type="button" id="r2" onclick="test_closeloop()"> Stop Campling</button>
+ 
             </div>
+            <button type="button" id="r0" onclick="test_interval()"> Start Campling </button>
+            <button type="button" id="r2" onclick="test_closeloop()"> Stop Campling</button>
         </div>
     </div>
     <!-- End: Data -->
