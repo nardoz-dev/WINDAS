@@ -85,10 +85,10 @@ async function read_valueLambdaF(){
         var formattedTime = handleTimeStamp(timestamp);
         
         
-        if(!(data_temp.labels.includes(timestamp))){
+        if(!(data_temp.labels.includes(formattedTime))){
           var temp = parseFloat(transformedPayload["temperature"])
           var hum = parseFloat(transformedPayload["humidity"])
-  
+          
           labels_temp.push(formattedTime);
           data_temp.datasets[0].data.push(temp);
           data_hum.datasets[0].data.push(hum);
@@ -96,8 +96,8 @@ async function read_valueLambdaF(){
 
 
       });
-      
-      labels_temp.push(labels_temp.sort((a, b) => {
+
+      labels_temp.sort((a, b) => {
         if (a > b) {
           return -1;
         }
@@ -105,7 +105,7 @@ async function read_valueLambdaF(){
           return 1;
         }
         return 0;
-      }));
+      });
       tempChart.update();
       humChart.update();
       

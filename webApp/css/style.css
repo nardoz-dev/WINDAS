@@ -348,29 +348,38 @@ ul.footer-menu li a:hover {
 
 
 .charTemp{
-    width: 550px;
+    width: 575px;
     height: 400px;
     display: inline-block;
     vertical-align: top;
     grid-area: charTemp;
-    vertical-align: top;
+    margin-top: 50px;
+    margin-bottom: 50px; 
 }
 
 .charHum {
-    width: 550px;
+    width: 575px;
     height: 400px;
     grid-area: chartHum;
     display: inline-block;
     vertical-align: top;
+    margin-top: 50px;
+    margin-bottom: 50px; 
 }
 
+.data_hum,
 .data_temp{
     display: inline-block;
-    text-align:right;
+    text-align:center;
+    margin-top: 50px; 
+    margin-bottom: 50px; 
 }
+
 #relay_buttons {
-    display: inline-block;
-    vertical-align: top;
+    display: flex; 
+    justify-content: center; 
+    margin-top: 50px; 
+    margin-bottom: 50px; 
 }
 
 #relay_buttons button {
