@@ -74,9 +74,12 @@
                   <p id="delta_temp">Variation in last Hour: none</p>
                 </div>
                 <div id="relay_buttons">
-                  <button type="button" id="r1" onclick="postLambdaFunction()"> Fan Always On</button>
-                  <button type="button" id="r0" onclick="sendCommand('r0')"> Fan Always Off</button>
-                  <button type="button" id="r2" onclick="sendCommand('r2')"> Fan Automatic</button>
+                  <button type="button" onclick="postLambdaFunction('ON')"> Fan Always On</button>
+                  <button type="button" onclick="postLambdaFunction('OFF')"> Fan Always Off</button>
+                  <button type="button" onclick="postLambdaFunction('AUTO')"> Fan Automatic</button>
+
+                  <button type="button" id="r0" onclick="test_interval()"> Start Campling </button>
+                  <button type="button" id="r2" onclick="test_closeloop()"> Stop Campling</button>
                 </div>
             </div>
         </div>

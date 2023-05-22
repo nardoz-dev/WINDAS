@@ -1,104 +1,179 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const data_temp = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: 'Temperature',
+// ----------- CONSTANT & VARIABLE ------------
+const labels_temp = [];
+const data_temp = {
+    labels: labels_temp,
+    datasets: [{
+        label: 'Temperature',
+        pointBackgroundColor: 'rgb(0,0,0)',
+        borderWidth: 1,
+        fill: false,
+        tension: 0.3,
+        data: [],
+    }]  
+}
 
-            pointBackgroundColor: 'rgb(0,0,0)',
-            borderWidth: 1,
-            fill: false,
-            tension: 0.3,
-            data: [23, 20, 21, 23, 21, 19],
-        }]  
-    }
-    
-    /*
-    const data_hum = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: 'Humiddity',
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            pointBackgroundColor: 'rgb(0,0,0)',
-            borderWidth: 1,
-            fill: false,
-            tension: 0.3,
-            data: [23, 20, 21, 23, 21, 19],
-        }]
-    }
-    */
+const data_hum = {
+    labels: labels_temp,
+    datasets: [{
+        label: 'Humidity',
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        pointBackgroundColor: 'rgb(0,0,0)',
+        borderWidth: 1,
+        fill: false,
+        tension: 0.3,
+        data: [],
+    }]
+}
+var tempChart,humChart;
 
-    // Crea un nuovo grafico a barre utilizzando Chart.js
-    var tempChart = new Chart(document.getElementById("chartTemp"), {
-        type: 'line',
-        data: data_temp
+// ----------- INITIALIZATION ------------
+function chart_layout(){
+
+  // New graph with Char js
+  tempChart = new Chart(document.getElementById("chartTemp"), {
+      type: 'line',
+      data: data_temp
+  });
+
+  // New graph with Char js
+  humChart = new Chart(document.getElementById("chartHum"), {
+      type: 'line',
+      data: data_hum
+  });
+
+}
+
+// ----------- HELPER FUNCTION ------------
+function handleTimeStamp(timestamp){
+  // Generate timestamp from $(timestamp()) of aws.
+  var seconds = Math.floor((timestamp / 1000) % 60);
+  var minutes = Math.floor((timestamp / (1000 * 60)) % 60);
+  var hours = Math.floor((timestamp / (1000 * 60 * 60)) % 24);
+  return hours.toString().padStart(2, '0') + ":" +
+          minutes.toString().padStart(2, '0') + ":" +
+          seconds.toString().padStart(2, '0');
+}
+// Lambda Function : read_temperature
+async function read_valueLambdaF(){
+  try {
+    const lambdaFunctionURL = 'https://peu4sutlyzjphwafmkif5slj5y0tchlz.lambda-url.eu-west-1.on.aws/'; // Replace with the actual Lambda Function URL
+  
+    const response = await fetch(lambdaFunctionURL, {
+      method: 'GET'
     });
+  
+    if (response.ok) {
+      const data = await response.json();
 
-    /*
-    // Crea un nuovo grafico a barre utilizzando Chart.js
-    var humChart = new Chart(document.getElementById("chartHum"), {
-        type: 'line',
-        data: data_hum
-    });
-    */
-    //const lambdaUrl = 'https://twjlutt2xbqhlnviply6nzgtjy0ccmny.lambda-url.eu-west-1.on.aws';
-    
-    async function invokeLambdaFunction() {
-        try {
-          const lambdaFunctionURL = 'https://peu4sutlyzjphwafmkif5slj5y0tchlz.lambda-url.eu-west-1.on.aws/'; // Replace with the actual Lambda Function URL
+      console.log('Lambda function, read_value from DynnamoDB, invocation successful!');
+      data.forEach((elem)=>{
+        // Transform the response in a pretty way (This change based on the specific of AWS IoT Core Rule used to write on DynamoDB )
+        const transformedPayload = {
+          id: elem.id.N,
+          ...Object.fromEntries(
+            Object.entries(elem.payload.M).map(([key, value]) => [key, value.S])
+          )
+        };
+        var timestamp = transformedPayload.id
+        var formattedTime = handleTimeStamp(timestamp);
         
-          const response = await fetch(lambdaFunctionURL, {
-            method: 'GET'
-          });
         
-          if (response.ok) {
-            const data = await response.json();
-            console.log('Lambda function invocation successful!');
-            console.log('Response:', data);
-          } else {
-            console.error('Lambda function invocation failed with status:', response.status);
-          }
-        } catch (error) {
-          console.error('Error invoking Lambda function:', error.message);
+        if(!(data_temp.labels.includes(timestamp))){
+          var temp = parseFloat(transformedPayload["temperature"])
+          var hum = parseFloat(transformedPayload["humidity"])
+  
+          labels_temp.push(formattedTime);
+          data_temp.datasets[0].data.push(temp);
+          data_hum.datasets[0].data.push(hum);
         }
-      }
-      
-    //invokeLambdaFunction();
 
+
+      });
+      
+      labels_temp.push(labels_temp.sort((a, b) => {
+        if (a > b) {
+          return -1;
+        }
+        if (a < b) {
+          return 1;
+        }
+        return 0;
+      }));
+      tempChart.update();
+      humChart.update();
+      
+   
+    } else {
+      console.error('Lambda function invocation failed with status:', response.status);
+    }
+  } catch (error) {
+    console.error('Error invoking Lambda function:', error.message);
+  }
+
+}
+
+
+// ----------- MAIN FUNCTION ------------
+function main(){
+
+  console.log("Start - Create chart layout")
+  chart_layout();
+  console.log("Start - Retrieve info for the graph")
+  read_valueLambdaF();
+  
+  /*
+  // Starting campling data - ogni 10 secondi.
+  setInterval(read_valueLambdaF, 10000)
+  */
+
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  main()
 });
 
+// ----------- FUNCTION TRIGGERED FROM WEBSITE ------------
 
-// Send to Board
-async function postLambdaFunction() {
-    console.log("PuercosLosDios")
-    var requestOptions = {
-        method: 'POST'
-    };
-    fetch("https://mzmk5uzj2fjrah5cqlcynm3ome0swley.lambda-url.eu-west-1.on.aws/", requestOptions)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Errore nella richiesta: " + response.status);
-        }
-        return response.text();
-        })
-        .then(data => {
-        console.log("Risposta:", data);
-        })
-        .catch(error => {
-        console.error("Errore durante la chiamata fetch:", error);
-        });
+// Lambda Function : publish_to_iotcore	
+async function postLambdaFunction(content) {
+
+  await fetch("https://mzmk5uzj2fjrah5cqlcynm3ome0swley.lambda-url.eu-west-1.on.aws/", {
+    method: 'POST',
+    body: content,
+  })
+  .then(data => {
+    // Gestisci la risposta dalla funzione Lambda
+    console.log("publish_to_iotcore successfully - see on bridge");
+  })
+  .catch(error => {
+    console.error('Error calling Lambda function:', error);
+  });
+
+}
+
+
+// ----------- TEST FUNCTION ------------
+var intervalId;
+function test_interval(){
+
+  intervalId = setInterval(read_valueLambdaF, 10000);
+  console.log("Loop Iniziato");
+
+}
+
+function test_closeloop(){
+  clearInterval(intervalId);
+  console.log("Loop terminato");
 }
 
   
-  
-  
-  
-  
+
   
 

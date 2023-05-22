@@ -16,27 +16,31 @@ AWS_PORT = 8883
 BROKER_ADDRESS = "localhost"
 BROKER_PORT = 1886
 # Topic to subscribe to
-TOPIC = "my_topic"
+
+#define MQTT_TOPIC_INT      "topic_board"
+#define MQTT_TOPIC_EXT      "topic_data"
+TOPIC_INT = "topic_board"
+TOPIC_EXT = "topic_data"
 TOPIC_TO_AWS = "topic_temp"
-TOPIC_FROM_AWS = "topic_from_aws"
+
+
 
 def myCallback(client, userdata, message):
     print("Received message on topic:", message.topic)
     print("Message:", message.payload)
     #publish.single(TOPIC,payload=message.payload, hostname="localhost",port="1886")
-    mqttClient.publish(TOPIC,message.payload)
+    mqttClient.publish(TOPIC_INT,message.payload)
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     if rc == 0:
-        print("Subscribe to topic : "+TOPIC)
-        client.subscribe(TOPIC)
+        print("Subscribe to topic : "+TOPIC_EXT)
+        client.subscribe(TOPIC_EXT)
     else:
         print("Connection failed. Return code =", rc)
 
 def on_message(client, userdata, msg):
     print("Received message:", msg.topic, msg.payload)
-    
 
     message = str(msg.payload)[2:len(str(msg.payload))-1]
     message = message.split("h")
@@ -45,7 +49,7 @@ def on_message(client, userdata, msg):
     message_out['humidity'] = message[1][:len(message[1])-1]+"."+ message[1][len(message[1])-1:]
     messageJson = json.dumps(message_out)
     print("Json inviato  :   "+messageJson)
-    #Publishing message
+    #Publishing message 
     myAWSIoTMQTTClient.publish(TOPIC_TO_AWS, messageJson, 1)
 
 
@@ -61,6 +65,7 @@ except connectError as e:
     print("Connection to AWS IoT MQTT broker failed:", str(e))
 
 
+
 print("MQTT Client connection")
 # Create MQTT client instance
 mqttClient = mqtt.Client()
@@ -68,8 +73,8 @@ mqttClient = mqtt.Client()
 mqttClient.on_connect = on_connect
 mqttClient.on_message = on_message
 
-#print("AWSClient Subscription")
-#myAWSIoTMQTTClient.subscribe(TOPIC_FROM_AWS,1,myCallback)
+print("AWSClient Subscription")
+myAWSIoTMQTTClient.subscribe(TOPIC_INT,1,myCallback)
 
 
 # Connect to MQTT broker

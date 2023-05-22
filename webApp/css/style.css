@@ -348,10 +348,14 @@ ul.footer-menu li a:hover {
 
 
 .charTemp{
+    width: 550px;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
     grid-area: charTemp;
     vertical-align: top;
 }
-/*
+
 .charHum {
     width: 550px;
     height: 400px;
@@ -359,7 +363,7 @@ ul.footer-menu li a:hover {
     display: inline-block;
     vertical-align: top;
 }
-*/
+
 .data_temp{
     display: inline-block;
     text-align:right;
