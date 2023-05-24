@@ -135,7 +135,36 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
 
 ## Setup & Run 
 
-> link to mosquitto rsmb
+1. You need to configure you AWS Environment
+  1. For AwS IoTCore
+  2. Lambda Function
+  3. DynamoDB
+  4. AWS Amplify
+2. Download from [here](!https://github.com/eclipse/mosquitto.rsmb) mosquitto rsmb.
+  1.  ``` 
+      cd mosquitto.rsmb/rsmb/src
+      make
+      ```
+  2. Create a file ```whatever_name.conf``` . In this case we run the RSMB as MQTT and MQTT-SN capable broker, using port 1885 for MQTT-SN and 1886 for MQTT and enabling IPv6.```
+            # add some debug output
+            trace_output protocol
+
+            # listen for MQTT-SN traffic on UDP port 1885
+            listener 1885 INADDR_ANY mqtts
+              ipv6 true
+
+            # listen to MQTT connections on tcp port 1886
+            listener 1886 INADDR_ANY
+              ipv6 true```
+          
+  3. Start it.```
+      ./broker_mqtt whatever_name.conf```
+3. Download
+4. pip3 -i requirements.txt
+5. start del server
+6. configurazione script
+7. lancio dello script e quindi board attiva
+
 
 ## Demo video
 Homemade demo presentation of project, link here. 
