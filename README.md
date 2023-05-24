@@ -83,8 +83,8 @@ The following image represents a description of the entire network system that w
   AwS Amplify then is used to host our application. The User Interface is fully understandable, and it display and monitor the temperature and humidity data. It can also display some measurements that we make in order to be able to have an overview of the trend of the data collected by the sensor, such as average, maximum, minimum and variation. Futhermore from our web application we can send special commands to the board.
 
 This is what my web application looks like.
-|![image](docs/sharedpictures/Dashboard_1.png)||![image](docs/sharedpictures/Dashboard_2.png)|
-|:--:||:--:|
+|![image](docs/sharedpictures/Dashboard_1.png)|![image](docs/sharedpictures/Dashboard_2.png)|
+|:--:|:--:|
 
 ## Working Principle
 
