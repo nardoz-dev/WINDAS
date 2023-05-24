@@ -183,6 +183,8 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
   ```
     sudo ./start.sh
   ```
+## BlogPost
+You can read more specific information in this blog post. 
 
 ## Demo video
 Homemade demo presentation of project, link here. 
