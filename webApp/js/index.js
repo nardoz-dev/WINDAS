@@ -16,14 +16,7 @@ const data_hum = {
     labels: labels_temp,
     datasets: [{
         label: 'Humidity',
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
+        borderColor: ['rgba(255, 170, 188, 1)'],
         pointBackgroundColor: 'rgb(0,0,0)',
         borderWidth: 1,
         fill: false,
@@ -38,13 +31,13 @@ function chart_layout(){
 
   // New graph with Char js
   tempChart = new Chart(document.getElementById("chartTemp"), {
-      type: 'line',
+      type: 'bar',
       data: data_temp
   });
 
   // New graph with Char js
   humChart = new Chart(document.getElementById("chartHum"), {
-      type: 'line',
+      type: 'bar',
       data: data_hum
   });
 
