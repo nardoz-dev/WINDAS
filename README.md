@@ -82,8 +82,9 @@ The following image represents a description of the entire network system that w
   AwS Amplify then is used to host our application. The User Interface is fully understandable, and it display and monitor the temperature and humidity data. It can also display some measurements that we make in order to be able to have an overview of the trend of the data collected by the sensor, such as average, maximum, minimum and variation. Futhermore from our web application we can send special commands to the board.
 
   This is what my web application looks like.
-  |![image](docs/sharedpictures/Dashboard_1.png)|![image](docs/sharedpictures/Dashboard_2.png)|
-  |:--:|:--:|
+  |![image](docs/sharedpictures/Dashboard_1.png)|
+  |![image](docs/sharedpictures/Dashboard_2.png)|
+  |:--:|
 
 ## Working Principle
 
@@ -95,7 +96,8 @@ The ON mode, always keeps the engine running, vice versa for the OFF mode, howev
 
 The polling and 'sending of data from the board into the cloud was decided to make it periodic with an interval of about 10 seconds. This avoids an aggregation of the data being sent, preventing any traffic congestion. In addition, much of the computation is done at the edge level, avoiding high latency when sending data to the cloud, all because the board can support computation. In this way, the only thing we send to the cloud is a message containing the temperature and humidity. 
 
-## Network
+## Network 
+<img src="docs/sharedpictures/aws_logo.png" width="200" align="right"/>
 
 ### General Description
 
