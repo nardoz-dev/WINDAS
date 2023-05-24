@@ -7,6 +7,7 @@ import paho.mqtt.publish as publish
 #AWS Paramater Init
 AWS_HOST = "a3b5fvirnosinx-ats.iot.eu-west-1.amazonaws.com" #can be found as parameter '--endpoint' in the last line of the file start.sh
 
+                    # Change with your absolute path 
 AWS_ROOT_CAP_PATH = "/home/nardo/Desktop/IoTDeviceKey/root-CA.crt"
 AWS_PRIVATE_KEY_PATH = "/home/nardo/Desktop/IoTDeviceKey/windforme.private.key"
 AWS_CERTIFICATE_PATH = "/home/nardo/Desktop/IoTDeviceKey/windforme.cert.pem"
@@ -81,27 +82,3 @@ myAWSIoTMQTTClient.subscribe(TOPIC_INT,1,myCallback)
 mqttClient.connect(BROKER_ADDRESS, BROKER_PORT , 60)
 # Start the network loop to handle MQTT communication
 mqttClient.loop_forever()
-
-
-
-
-
-
-
-def on_aws_message(client, userdata, message):
-    print("Received message from AWS IoT Core:", message.topic, message.payload)
-    # Process the received message as needed
-    # Example: Extract data from the payload
-    payload = message.payload.decode('utf-8')
-    data = json.loads(payload)
-    temperature = data.get('temperature')
-    # humidity = data.get('humidity')
-    # Perform further processing or actions with the extracted data
-    
-    # Example: Publish a response back to the local MQTT broker
-    response = {
-        'status': 'success',
-        'message': 'Message received and processed'
-    }
-    response_payload = json.dumps(response)
-    mqttClient.publish('response_topic', response_payload, 1)

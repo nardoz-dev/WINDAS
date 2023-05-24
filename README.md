@@ -129,8 +129,11 @@ So that the network latency does not influence the capability of the device.
 
 The only part that works on cloud , so in the specific on AWS. It recieves the temperature and humidity data from the devices and then are stored on DynamoDB. The following rule manages the execution flow of this operation.
 
-![image](/docs/sharedpictures/AwSIoTRule.png)
-
+|![image](/docs/sharedpictures/AwSIoTRule.png)|
+<!-- 
+|:--:|
+|Rule|
+-->
 ## Setup & Run 
 
 > link to mosquitto rsmb

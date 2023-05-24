@@ -185,8 +185,8 @@ void *sampling_temperature(void* arg){
             int16_t temp,hum;
             random_number = random_uint32();
 
-            temp = (int16_t)(random_number % (35 - 28 +1) +28);
-            hum = (int16_t)(random_number % (64 - 56 +1) +56);
+            temp = (int16_t)(random_number % (350 - 330 +1) +330);
+            hum = (int16_t)(random_number % (640 - 620 +1) +620);
 
             char temp_s[10];
             char hum_s[10];
