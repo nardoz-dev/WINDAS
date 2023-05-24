@@ -8,10 +8,11 @@
         "iot:Receive"
       ],
       "Resource": [
-        "arn:aws:iot:eu-west-1:417891568674:topic/sdk/test/java",
-        "arn:aws:iot:eu-west-1:417891568674:topic/sdk/test/python",
-        "arn:aws:iot:eu-west-1:417891568674:topic/sdk/test/js",
-        "arn:aws:iot:eu-west-1:417891568674:topc/topic_temp"
+        "arn:aws:iot:<your-region>:<your-account-ID>:topic/sdk/test/java",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topic/sdk/test/python",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topic/sdk/test/js",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topic/topic_temp",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topic/topic_board"
       ]
     },
     {
@@ -20,10 +21,11 @@
         "iot:Subscribe"
       ],
       "Resource": [
-        "arn:aws:iot:eu-west-1:417891568674:topicfilter/sdk/test/java",
-        "arn:aws:iot:eu-west-1:417891568674:topicfilter/sdk/test/python",
-        "arn:aws:iot:eu-west-1:417891568674:topicfilter/sdk/test/js"
-        "arn:aws:iot:eu-west-1:417891568674:topcfilter/topic_temp"
+        "arn:aws:iot:<your-region>:<your-account-ID>:topicfilter/sdk/test/java",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topicfilter/sdk/test/python",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topicfilter/sdk/test/js",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topicfilter/topic_temp",
+        "arn:aws:iot:<your-region>:<your-account-ID>:topicfilter/topic_board"
       ]
     },
     {
@@ -32,10 +34,10 @@
         "iot:Connect"
       ],
       "Resource": [
-        "arn:aws:iot:eu-west-1:417891568674:client/sdk-java",
-        "arn:aws:iot:eu-west-1:417891568674:client/basicPubSub",
-        "arn:aws:iot:eu-west-1:417891568674:client/sdk-nodejs-*"
-        "arn:aws:iot:eu-west-1:417891568674:client/windforme"
+        "arn:aws:iot:<your-region>:<your-account-ID>:client/sdk-java",
+        "arn:aws:iot:<your-region>:<your-account-ID>:client/basicPubSub",
+        "arn:aws:iot:<your-region>:<your-account-ID>:client/sdk-nodejs-*",
+        "arn:aws:iot:<your-region>:<your-account-ID>:client/windforme"
       ]
     }
   ]

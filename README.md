@@ -93,39 +93,43 @@ The polling and 'sending of data from the board into the cloud was decided to ma
 
 ## Network
 
+### General Description
 La gestione e l'invio dei dati all'interno di questo progetto viene effettuata usando il protocollo MQTT. Abbiamo quindi la board collegata al server mosquitto.rsmb e il nostro servizio AwS IoTCore che sono collegati attraverso un transparent bridge che abbiamo scritto in python. Abbiamo quindi il nostro broker mqtt che abbiamo sottoscritto al topic "topic_data" e il nostro broker AwS IoTCore che invece è sottoscritto al topic "topic_board".
 
 La board costruisce l'informazione da mandare e la pubblica sul topic : *topic_data*, il transparent bridge cattura questo messaggio e lo spedisce invocando una lambda function su un topic al quale abbiamo fatto iscrivere l'AwSIoTCore per poi salvarla su una tabella in DynamoDB.
-Un'importante aspetto di questo funzionamento è la Policy che associamo al nostro oggetto in AwSIoTCore, ecco un [esempio di policy]() .
-Il messaggio inviato è piu piccolo di 15 bytesm 
-
+Un'importante aspetto di questo funzionamento è la Policy che associamo al nostro oggetto in AwSIoTCore, ecco un [esempio di policy](/IoTCore_thing/windforme-Policy).
 
 E' stato implementata la comunicazione bidirezionale, quindi dalla nostra webapplication possiamo comunicare con la board. 
 Per il momento l'unica funzionalità che è stata implementata è l'invio di un messaggio che cambia la modalità di sistema dell'intera applicazione. Il messaggio generato dalla web application viene pubblicato attraverso una lambda function sul topic : *topic_board* . Il transparent bridge si attiva per trasportare il messaggio pubblicato sul broker della board, in modo tale da triggerare la funzione di callback del protocollo mqtt. Viene così processato il messaggio in modo da estrapolare il comando per poterlo eseguire.
+
+/*  Screenshot della dashboard della web application  */
 
 Un'altra aspetto importante è l'assegnazione delle IAM Policy per le lambda function, le quale in base al tipo di servizio che offrono hanno bisogno delle autorizzazioni. 
 
 Inoltre è possibile azionare dalla WebApplication la syncronizzazione del retrieve delle informazioni ogni qualvolta la board invia un messaggio al database. Questo clamping è stato gestito tenendo in considerazione le latenze che subiscono il messaggio in fase di invio e ricezione.
 
+### Network performance
+
+Via a tool for analyze packets in the network is possible to see how are our packets.In our network there will be transmitted only the temperature and humidity data, futhermore from the webapp in the board will be transmitted only a message with special words for system command.
+
+So in the first case we have a message that is lees than 37bytes. In the second case in the worst case since we need to send one of [ auto - on - off ] his length is maximum 5bytes . In both cases we have a very short latency, one caused from when the sensor register a new value and the other one from when a button is clicked on the web app to when the system acts.
+
+This latency are short enough to not affect he usability of the system.
 
 ## Data Processing
 
-Data Processed on the by the Board
-In general the amount of the data received from the sensors depends on how well the threads that handle the measurement are synchronized. If they are perfectly in sync, then the system would receive a total of 24 bits (8 bits for temperature, 8 bits for relative humidity and 8 bits for soil moisture).
-
-This data is then formatted in a message that is then sent to the broker. In particular to reduce the number of bytes sent by the device in the network the message has a payload size of 9 bytes when sending data about temperature and humidity, and size of 5 bytes when sending data about soil moisture. Obviously in addition to the payload the message has a header but in this case is small thanks to the use of mqtt-sn protocol.
-
-
 ### Edge Computing
 
-The device aggregates the information on temperature level and periodically sends comulative reports. This has the effect of reducing network load and forwarding only necessary information to the rest of the system via MQTT.
-The trigger logic for starting the motor is running fully on the device itself, so we gain less influence by network latency. 
-
-/* Ampliamo l'edge computing scrivendo tutte le fasi in cui è stato effettuato edge computing all'interno del mio dispositivo */ 
+Then there are two process that are running fully on the device itself : 
+* the process of the automatic system which need to compare the value read from the sensor with the threshold.
+* trigger logic of the motor - once is received the message command from the webapp
+So that the network latency does not influence the capability of the device.
 
 ### Cloud Computing
 
-The only part that works on cloud , so in the specific on AWS. It recieves the temperature data from the devices and then are stored on DynamoDB. 
+The only part that works on cloud , so in the specific on AWS. It recieves the temperature and humidity data from the devices and then are stored on DynamoDB. The following rule manages the execution flow of this operation.
+
+![image](/docs/sharedpictures/AwSIoTRule.png)
 
 ## Setup & Run 
 
