@@ -137,13 +137,21 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
 ## Setup & Run 
 
 ### Configuration AWS Environment
-* AWS IoTCore
-* LambdaFunction
-* DynamoDB
-* AWSAmplify ***not strictly necessary***
+* **AWS IoTCore**.  
+  You need to setup a thing on this services then you need to download some certification, they need to look like the ones that are in IoTCore_thing folder. The most important thing is the Policy, in order to use this project you should have a Policy like [windforme-Policy](/IoTCore_thing/windforme-Policy).  
+  Then you need to construct a messagging rules like the one described before in the cloudcomputing part in order to write in the dynamodb table the data received from the board.
+* **Lambda function**.  
+  Write two lambda functions such as [publish_to_iotcore](/LambdaFunctions/publish_to_iotcore.py) and [read_data](/LambdaFunctions/read_data.py).  
+  If they are created on aws lambda, pay attention to the role, you probably need to use the IAM management console to customize them. 
+  In fact, for the first lambda function, I applied the AWSIoTFullAccess policy to the specific associated role, then for the second lambda function, however, I modified the policy already attached to the associated role and added write permission on dynamodb services.
+* **DynamoDB**.  
+  Simply creates a table called "your_table_name," the name of which must be the same as written in the read_data lambda function.
+* **AWSAmplify** ***not strictly necessary***.  
+  You can hosts the entire webApp folder on the AWSAmplify service. 
+  By the way, you can test the application on localhost.
 
 ### Mosquitto RSMB
-* Download from [here](!https://github.com/eclipse/mosquitto.rsmb) mosquitto rsmb.
+* Download [mosquitto rsmb](!https://github.com/eclipse/mosquitto.rsmb).  
   ``` 
     cd mosquitto.rsmb/rsmb/src
     make
@@ -166,7 +174,7 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
     ./broker_mqtt whatever_name.conf
   ```
 ### Transparent bridge
-* Go under the folder of bridge then : 
+* Go under the folder of bridge then install dependencies: 
   ```
     pip3 install -r requirements.txt
   ```
