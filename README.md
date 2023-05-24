@@ -115,9 +115,7 @@ Also, it is possible to trigger from the WebApplication the synchronization of i
 
 Via a tool for analyze packets in the network is possible to see how are our packets.In our network there will be transmitted only the temperature and humidity data, futhermore from the webapp in the board will be transmitted only a message with special words for system command.
 
-So in the first case we have a message that is lees than 37bytes. In the second case in the worst case since we need to send one of [ auto - on - off ] his length is maximum 5bytes . In both cases we have a very short latency, one caused from when the sensor register a new value and the other one from when a button is clicked on the web app to when the system acts.
-
-This latency are short enough to not affect the usability of the system.
+So in the first case we have a message that is lees than 37bytes. In the second case in the worst case since we need to send one of [ auto - on - off ] his length is maximum 5bytes . In both cases we have a very short latency, one caused from when the sensor register a new value and the other one from when a button is clicked on the web app to when the system acts. This latency are short enough to not affect the usability of the system.
 
 ## Data Processing
 
@@ -125,7 +123,7 @@ This latency are short enough to not affect the usability of the system.
 
 Then there are two process that are running fully on the device itself : 
 * the process of the automatic system which need to compare the value read from the sensor with the threshold.
-* trigger logic of the motor - once is received the message command from the webapp
+* trigger logic of the motor - once is received the message command from the webapp.
 So that the network latency does not influence the capability of the device.
 
 ### Cloud Computing
