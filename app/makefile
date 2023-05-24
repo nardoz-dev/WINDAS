@@ -21,7 +21,7 @@ USEMODULE += gnrc_ipv6_default
 # Optimize the use of network interface
 USEMODULE += gnrc_netif_single  #non necessario
 USEMODULE += stdio_ethos gnrc_uhcpc
-# Include MQTT-SN implementation
+# Include MQTT-SN client
 USEMODULE += emcute
 
 EMCUTE_ID ?= 01
