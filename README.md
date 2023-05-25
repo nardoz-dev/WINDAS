@@ -157,7 +157,7 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
     cd mosquitto.rsmb/rsmb/src
     make
   ```
-* Create a file ```whatever_name.conf``` . In this case we run the RSMB as MQTT and MQTT-SN capable broker, using port 1885 for MQTT-SN and 1886 for MQTT and enabling IPv6.
+* Create a file ```whatever_name.conf``` . In this case we run the RSMB as MQTT and MQTT-SN capable broker, using port 1885 for MQTT-SN and 1886 for MQTT and enabling IPv6,  so we need to write this inside the whatever_name.conf file.
   ```
     # add some debug output
     trace_output protocol
@@ -193,7 +193,7 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
     sudo ./start.sh
   ```
 ## BlogPost
-You can read more specific information in this blog post. 
+You can read more specific information in this [blog post](!https://www.hackster.io/nardomen96/automatic-ventilation-system-6d643e#toc-init-board--amp--sensors-1). 
 
 ## Demo video
 Homemade demo presentation of project, link here. 
