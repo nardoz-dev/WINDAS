@@ -134,6 +134,12 @@ void set_digit_value(int value) {
     gpio_write(SEGMENT_F, segment_values[5]);
     gpio_write(SEGMENT_G, segment_values[6]);
 }
+
+int a = 240;
+int b = 238;
+int c = 552;
+int d = 550;
+
 void *sampling_temperature(void* arg){
     (void)arg;
     bool dataFlag = false;
@@ -170,12 +176,14 @@ void *sampling_temperature(void* arg){
                     set_digit_value(1);
                     gpio_set(motor_pin);
                     flag_on = false;
+                    flag_off = true;
                 }
                 if(flag_off && ((unsigned int)temp <= 254)) {
                     printf("\nTemperature under threshold - deactivating motor  ");
                     set_digit_value(0);
                     gpio_clear(motor_pin);
                     flag_off = false;
+                    flag_on = true;
                 }
             }
 
@@ -185,8 +193,13 @@ void *sampling_temperature(void* arg){
             int16_t temp,hum;
             random_number = random_uint32();
 
-            temp = (int16_t)(random_number % (353 - 338 +1) +338);
-            hum = (int16_t)(random_number % (653 - 638 +1) +638);
+            if (flag_on){
+                a += 5;
+                b += 5;
+            }
+
+            temp = (int16_t)(random_number % (a - b +1) +b);
+            hum = (int16_t)(random_number % (c - d +1) +d);
 
             char temp_s[10];
             char hum_s[10];
@@ -200,6 +213,24 @@ void *sampling_temperature(void* arg){
             char message[25];    
             sprintf(message,"t%sh%s", temp_s, hum_s);
             publish(MQTT_TOPIC_EXT, message); //publishing message on broker 
+
+            if(system_mod == AUTO ){
+                if (flag_on && ((unsigned int)temp >= 247)) {
+                    printf("\nTemperature above threshold - activating motor ");
+                    set_digit_value(1);
+                    gpio_set(motor_pin);
+                    flag_on = false;
+                    flag_off = true;
+                }
+                if(flag_off && ((unsigned int)temp <= 200)) {
+                    printf("\nTemperature under threshold - deactivating motor  ");
+                    set_digit_value(0);
+                    gpio_clear(motor_pin);
+                    flag_off = false;
+                    flag_on = true;
+                }
+            }
+
         }
 
         dataFlag=false;
@@ -215,6 +246,7 @@ void motor_handling(void){
     switch(system_mod){
         case AUTO:  
             printf("\nAUTO ");
+            set_digit_value(0);
             break;
         case ON:
             printf("\nMotor activation by external control ");
@@ -223,7 +255,7 @@ void motor_handling(void){
             break;
         case OFF:
             printf("\nMotor deactivation by external control ");
-            set_digit_value(2);
+            set_digit_value(0);
             gpio_clear(motor_pin);
             break;  
         default:

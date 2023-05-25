@@ -51,7 +51,7 @@ def on_message(client, userdata, msg):
     messageJson = json.dumps(message_out)
     print("Json inviato  :   "+messageJson)
     #Publishing message 
-    myAWSIoTMQTTClient.publish(TOPIC_TO_AWS, messageJson, 1)
+    #myAWSIoTMQTTClient.publish(TOPIC_TO_AWS, messageJson, 1)
 
 
 print("AWS Client connection")
