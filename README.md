@@ -193,7 +193,7 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
     sudo ./start.sh
   ```
 ## BlogPost
-You can read more specific information in this [blog post](!https://www.hackster.io/nardomen96/automatic-ventilation-system-6d643e#toc-init-board--amp--sensors-1). 
+You can read more specific information in this [blog post](https://www.hackster.io/nardomen96/automatic-ventilation-system-6d643e). 
 
 ## Demo video
 Homemade demo presentation of project, link here. 
