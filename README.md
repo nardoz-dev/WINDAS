@@ -126,8 +126,9 @@ So in the first case we have a message that is lees than 37bytes. In the second 
 
 Then there are two process that are running fully on the device itself : 
 * the process of the automatic system which need to compare the value read from the sensor with the threshold.
-* trigger logic of the motor - once is received the message command from the webapp.
-So that the network latency does not influence the capability of the device.
+* trigger logic of the motor - once is received the message command from the webapp.  
+
+In this way the network latency does not influence the capability of the device.
 
 ### Cloud Computing
 
