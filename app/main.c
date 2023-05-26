@@ -135,11 +135,6 @@ void set_digit_value(int value) {
     gpio_write(SEGMENT_G, segment_values[6]);
 }
 
-int a = 240;
-int b = 238;
-int c = 552;
-int d = 550;
-
 void *sampling_temperature(void* arg){
     (void)arg;
     bool dataFlag = false;
@@ -186,52 +181,11 @@ void *sampling_temperature(void* arg){
                     flag_on = true;
                 }
             }
-
-            
-        }else{
-            uint32_t random_number;
-            int16_t temp,hum;
-            random_number = random_uint32();
-
-            if (flag_on){
-                a += 5;
-                b += 5;
-            }
-
-            temp = (int16_t)(random_number % (a - b +1) +b);
-            hum = (int16_t)(random_number % (c - d +1) +d);
-
-            char temp_s[10];
-            char hum_s[10];
-            snprintf(temp_s, sizeof(temp_s),"%d",temp);
-            snprintf(hum_s,sizeof(hum_s),"%d",hum);
-            // Default Message for testing purpose* (DHT11 SENSOR BROKEN)
-            printf("\nDefault random value sending for TESTING purpose.");
-            printf("\nDHT values - temp: %s°C - relative humidity: %s%% ",temp_s, hum_s);
-
-            //setting up message to send
-            char message[25];    
-            sprintf(message,"t%sh%s", temp_s, hum_s);
-            publish(MQTT_TOPIC_EXT, message); //publishing message on broker 
-
-            if(system_mod == AUTO ){
-                if (flag_on && ((unsigned int)temp >= 247)) {
-                    printf("\nTemperature above threshold - activating motor ");
-                    set_digit_value(1);
-                    gpio_set(motor_pin);
-                    flag_on = false;
-                    flag_off = true;
-                }
-                if(flag_off && ((unsigned int)temp <= 200)) {
-                    printf("\nTemperature under threshold - deactivating motor  ");
-                    set_digit_value(0);
-                    gpio_clear(motor_pin);
-                    flag_off = false;
-                    flag_on = true;
-                }
-            }
-
         }
+        /*
+            For my decision instead of sending a failure message payload
+            If the dht11 sensor failed to retrieve data, then do nothing.
+        */
 
         dataFlag=false;
 
@@ -255,7 +209,7 @@ void motor_handling(void){
             break;
         case OFF:
             printf("\nMotor deactivation by external control ");
-            set_digit_value(0);
+            set_digit_value(2);
             gpio_clear(motor_pin);
             break;  
         default:
