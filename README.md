@@ -196,7 +196,7 @@ The only part that works on cloud , so in the specific on AWS. It recieves the t
 You can read more specific information in this [blog post](https://www.hackster.io/nardomen96/automatic-ventilation-system-6d643e). 
 
 ## Demo video
-Homemade demo presentation of project, link here. 
+Homemade demo presentation of project, [link here](https://www.youtube.com/watch?v=rtMJEa1l2h4). 
 
 
 
